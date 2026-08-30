@@ -1,201 +1,618 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8"> <!--Codificacion de caracteres-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--configuracion para dis.moviles-->
-    <title>ARDILA DANCE COMPANY</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ardila Dance Company</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-        --morado-principal: #3b1443;   /* Morado elegante y profundo */
-        --morado-hover: #581c66;       /* Morado un poco más claro para efectos */
-         --amarillo-acento: #ffcc00;   /* Amarillo brillante institucional */
-         --fondo-claro: #f8f6f9;        /* Fondo gris/morado muy claro */
-         --texto-oscuro: #222222;       /* Texto legible */
-         --blanco: #ffffff;
+            --morado-principal: #3b1443;
+            --morado-hover: #581c66;
+            --morado-suave: #5a2266;
+            --amarillo-acento: #ffcc00;
+            --fondo-claro: #f8f6f9;
+            --texto-oscuro: #222222;
+            --blanco: #ffffff;
+            --sombra: 0 18px 40px rgba(59, 20, 67, 0.12);
+            --radio: 18px;
         }
 
-        body { /* ESTILOS GENERALES */
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: var(--fondo-claro);
-        color: var(--texto-oscuro);
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Outfit', 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--fondo-claro);
+            color: var(--texto-oscuro);
+            line-height: 1.65;
         }
-        
-        .menu { /* ENCABEZADO Y NAVEGACIÓN */
-        background-color: var(--morado-principal);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 40px;
-        border-bottom: 3px solid var(--amarillo-acento); /* Detalle amarillo */
+
+        img { max-width: 100%; display: block; }
+        a { color: inherit; }
+
+        .envolvente {
+            width: min(1180px, calc(100% - 48px));
+            margin: 0 auto;
+        }
+
+        /* ENCABEZADO */
+        .menu {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            background-color: rgba(59, 20, 67, 0.94);
+            backdrop-filter: blur(16px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 40px;
+            border-bottom: 3px solid var(--amarillo-acento);
         }
 
         .logo {
-        color: var(--amarillo-acento);
-        font-weight: bold;
-        font-size: 1.4rem;
-        letter-spacing: 1px;
+            color: var(--amarillo-acento);
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-size: 1.35rem;
+            letter-spacing: 1.5px;
+            text-decoration: none;
+        }
+
+        .logo span {
+            display: block;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.62rem;
+            letter-spacing: 3px;
+            color: var(--blanco);
+            font-weight: 400;
         }
 
         .menu-navegacion ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        gap: 20px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
         }
 
         .menu-navegacion a {
-        color: var(--blanco);
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s;
+            color: var(--blanco);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.92rem;
+            transition: color 0.3s;
         }
 
-        .menu-navegacion a:hover {
-        color: var(--amarillo-acento);
+        .menu-navegacion a:hover { color: var(--amarillo-acento); }
+
+        .btn-menu {
+            display: none;
+            background: transparent;
+            border: 1px solid rgba(255, 204, 0, 0.45);
+            color: var(--amarillo-acento);
+            border-radius: 8px;
+            padding: 8px 12px;
+            cursor: pointer;
         }
-       
-        .hero {  /* SECCIÓN INICIO (HERO) */
-        background-color: var(--morado-principal);
-        text-align: bold; 
-        padding: 15px 40px;
-        border-bottom: 3px solid var(--amarillo-acento);
+
+        /* HERO */
+        .hero {
+            position: relative;
+            min-height: 88vh;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            color: var(--blanco);
+            text-align: center;
+        }
+
+        .hero-media {
+            position: absolute;
+            inset: -12% 0 0;
+            z-index: 0;
+        }
+
+        .hero-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+            transform: translateY(var(--parallax, 0px));
+            will-change: transform;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(59, 20, 67, 0.35) 0%, rgba(59, 20, 67, 0.78) 70%, var(--morado-principal) 100%),
+                radial-gradient(circle at 30% 40%, rgba(255, 204, 0, 0.18), transparent 45%);
+        }
+
+        .hero-contenido {
+            position: relative;
+            z-index: 1;
+            padding: 80px 24px 70px;
+            max-width: 860px;
+        }
+
+        .hero-etiqueta {
+            display: inline-block;
+            border: 1px solid var(--amarillo-acento);
+            color: var(--amarillo-acento);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            padding: 7px 14px;
+            margin-bottom: 18px;
         }
 
         .hero h1 {
-        font-size: 1.8rem;
-        margin-bottom: 10px;
-        color: var(--amarillo-acento);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.4rem, 6vw, 4.6rem);
+            line-height: 1.08;
+            margin: 0 0 16px;
+            color: var(--amarillo-acento);
+            font-weight: 600;
         }
 
-        .hero p { /* Configuracion opcional de texto adicional*/
-        font-size: 0.2rem;
-        font-style: italic;
+        .hero p {
+            font-size: 1.08rem;
+            color: rgba(255, 255, 255, 0.88);
+            max-width: 560px;
+            margin: 0 auto 28px;
         }
 
-        .nosotros, .seccion-obras {  /* ESTILOS DE SECCIONES */
-        padding: 50px 40px;
-        max-width: 1200px;
-        margin: 0 auto;
+        .acciones {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .boton {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            padding: 12px 22px;
+            border-radius: 999px;
+            font-weight: 600;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .boton:hover { transform: translateY(-2px); }
+        .boton-principal { background: var(--amarillo-acento); color: var(--morado-principal); }
+        .boton-secundario { border: 1px solid var(--blanco); color: var(--blanco); }
+
+        /* SECCIONES */
+        .seccion {
+            padding: 88px 0;
         }
 
         .subtitulos {
-        color: var(--morado-principal);
-        text-transform: uppercase;
-        font-weight: bold;
-        letter-spacing: 2px;
-        margin-bottom: 5px;
+            color: var(--morado-principal);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 2.4px;
+            margin-bottom: 8px;
+            font-size: 0.78rem;
         }
 
         h2 {
-        color: var(--morado-principal);
-        margin-top: 0;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--morado-principal);
+            margin: 0 0 16px;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.15;
         }
-        
-        .grid-nosotros { /* TARJETAS DE INFORMACIÓN (Misión, Visión, etc.) */
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
-        margin-top: 20px;
+
+        .intro-seccion {
+            max-width: 640px;
+            margin-bottom: 36px;
+            color: #4a4450;
+        }
+
+        .cabecera-seccion {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 24px;
+            margin-bottom: 36px;
+        }
+
+        /* COMPAÑÍA */
+        .compania-layout {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 28px;
+            align-items: stretch;
         }
 
         .grid-nosotros {
-        background: var(--blanco);
-        padding: 20px;
-        border-radius: 8px;
-        border-left: 5px solid var(--morado-principal);
-        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
         }
-        
-        .T-proyectos { /* TARJETAS DE OBRAS */
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin-top: 25px;
+
+        .tarjeta-info {
+            background: var(--blanco);
+            padding: 22px;
+            border-radius: var(--radio);
+            border-left: 5px solid var(--morado-principal);
+            box-shadow: var(--sombra);
+        }
+
+        .tarjeta-info.ancha { grid-column: 1 / -1; }
+
+        .tarjeta-info h3 {
+            margin: 0 0 8px;
+            color: var(--morado-principal);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.45rem;
+        }
+
+        .tarjeta-info p { margin: 0; color: #524b58; }
+
+        .panel-foto {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            min-height: 520px;
+            box-shadow: var(--sombra);
+        }
+
+        .panel-foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .panel-foto figcaption {
+            position: absolute;
+            left: 18px;
+            right: 18px;
+            bottom: 18px;
+            background: rgba(59, 20, 67, 0.88);
+            color: var(--blanco);
+            padding: 16px 18px;
+            border-radius: 14px;
+            border-left: 4px solid var(--amarillo-acento);
+        }
+
+        .panel-foto strong { color: var(--amarillo-acento); display: block; margin-bottom: 4px; }
+        .panel-foto p { margin: 0; font-size: 0.92rem; }
+
+        /* OBRAS */
+        .fondo-oscuro {
+            background: var(--morado-principal);
+            color: var(--blanco);
+        }
+
+        .fondo-oscuro .subtitulos,
+        .fondo-oscuro h2 { color: var(--amarillo-acento); }
+        .fondo-oscuro .intro-seccion { color: rgba(255,255,255,0.82); }
+
+        .T-proyectos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
 
         .Img-proyecto {
-        background-color: var(--blanco);
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        border: 1px solid #e0e0e0;
+            background: var(--blanco);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            color: var(--texto-oscuro);
+            transition: transform 0.3s ease;
+        }
+
+        .Img-proyecto:hover { transform: translateY(-8px); }
+
+        .Img-proyecto .foto {
+            height: 250px;
+            overflow: hidden;
         }
 
         .Img-proyecto img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        .Img-proyecto .contenido {
-        padding: 20px;
-        }
+        .Img-proyecto:hover img { transform: scale(1.06); }
 
+        .Img-proyecto .contenido { padding: 22px; }
         .Img-proyecto h3 {
-        margin-top: 0;
-        color: var(--morado-principal);
+            margin: 0 0 8px;
+            color: var(--morado-principal);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+        }
+        .Img-proyecto p { margin: 0; color: #5a5360; }
+
+        /* FESTIVAL Y TALLERES */
+        .pestañas {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 28px;
         }
 
-        .fest-taller {
-        padding: 50px 40px;
-        max-width: 1200px;
-        margin: 0 auto; 
-
-        }  
-        
-        .seccion-comunidad {
-        padding: 50px 40px;
-        max-width: 1200px;
-        margin: 0 auto; 
-
+        .pestaña {
+            border: 1px solid #e4dce8;
+            background: var(--blanco);
+            color: var(--morado-principal);
+            border-radius: 999px;
+            padding: 10px 18px;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
         }
-        
-        .seccion-comunidad .subtitulo { /* Subtítulo estilo institucional */
+
+        .pestaña.activa {
+            background: var(--morado-principal);
             color: var(--amarillo-acento);
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 2px;
-            margin-bottom: 5px;
+            border-color: var(--morado-principal);
         }
 
-        /* Título estilo institucional */
-        .seccion-comunidad h2 {
+        .panel-encuentro { display: none; }
+        .panel-encuentro.visible { display: block; }
+
+        .festival-destacado {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            min-height: 420px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            background: var(--morado-principal);
             color: var(--blanco);
-            margin-top: 0;
-            font-size: 2.2rem;
+            margin-bottom: 22px;
         }
 
-        /* 2. CREAMOS EL GRID DEL MOSAICO (Aquí está la magia) */
+        .festival-destacado .foto {
+            position: relative;
+            min-height: 320px;
+        }
+
+        .festival-destacado img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .festival-destacado .foto::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(59,20,67,0.35));
+        }
+
+        .festival-destacado .info {
+            padding: 36px 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .festival-destacado .etiqueta {
+            color: var(--amarillo-acento);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin: 0 0 10px;
+        }
+
+        .festival-destacado h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            margin: 0 0 12px;
+            color: var(--blanco);
+            line-height: 1.15;
+        }
+
+        .festival-destacado p { color: rgba(255,255,255,0.86); margin: 0 0 18px; }
+
+        .meta-festival {
+            display: grid;
+            gap: 8px;
+            margin-bottom: 22px;
+            font-size: 0.95rem;
+        }
+
+        .meta-festival span { color: var(--amarillo-acento); font-weight: 700; margin-right: 8px; }
+
+        .rejilla-festival {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 22px;
+        }
+
+        .dato-festival {
+            background: var(--blanco);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: var(--sombra);
+            border-top: 4px solid var(--amarillo-acento);
+        }
+
+        .dato-festival h4 {
+            margin: 0 0 8px;
+            color: var(--morado-principal);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+        }
+
+        .dato-festival p { margin: 0; color: #524b58; font-size: 0.94rem; }
+
+        .programacion {
+            background: var(--blanco);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+        }
+
+        .programacion h4 {
+            margin: 0;
+            padding: 18px 22px;
+            background: var(--morado-principal);
+            color: var(--amarillo-acento);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+        }
+
+        .programacion ol {
+            list-style: none;
+            margin: 0;
+            padding: 8px 0;
+        }
+
+        .programacion li {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 16px;
+            padding: 14px 22px;
+            border-bottom: 1px solid #f0eaf3;
+            color: #524b58;
+        }
+
+        .programacion li:last-child { border-bottom: 0; }
+        .programacion time { color: var(--morado-principal); font-weight: 700; }
+
+        .rejilla-talleres {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .tarjeta-taller {
+            background: var(--blanco);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tarjeta-taller .foto {
+            height: 180px;
+            position: relative;
+        }
+
+        .tarjeta-taller img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tarjeta-taller .chip {
+            position: absolute;
+            left: 14px;
+            bottom: 14px;
+            background: var(--amarillo-acento);
+            color: var(--morado-principal);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 6px 10px;
+            border-radius: 999px;
+        }
+
+        .tarjeta-taller .contenido {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .tarjeta-taller h3 {
+            margin: 0;
+            color: var(--morado-principal);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.45rem;
+        }
+
+        .tarjeta-taller p { margin: 0; color: #524b58; }
+
+        .ficha-taller {
+            margin: 8px 0 12px;
+            padding: 0;
+            list-style: none;
+            font-size: 0.9rem;
+            color: #5a5360;
+        }
+
+        .ficha-taller li { margin: 4px 0; }
+        .ficha-taller strong { color: var(--morado-principal); }
+
+        .ver-mas {
+            color: var(--morado-principal);
+            font-weight: 700;
+            text-decoration: none;
+            margin-top: auto;
+        }
+        .ver-mas:hover { color: var(--morado-hover); }
+
+        /* COMUNIDAD */
+        .galeria-comunidad {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr;
+            grid-template-rows: 250px 250px;
+            gap: 16px;
+        }
+
+        .galeria-comunidad figure {
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+        }
+
+        .galeria-comunidad figure:first-child { grid-row: 1 / 3; }
+
+        .galeria-comunidad img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .galeria-comunidad figcaption {
+            position: absolute;
+            inset: auto 0 0;
+            padding: 16px 18px;
+            background: linear-gradient(to top, rgba(59,20,67,0.9), transparent);
+            color: var(--blanco);
+            font-weight: 600;
+        }
+
+        /* MOSAICO VANGUARDIA */
         .contenedor-mosaico {
             display: grid;
-            /* Crea 4 columnas de igual tamaño */
             grid-template-columns: repeat(4, 1fr);
-            /* Define huecos entre las tarjetas */
-            gap: 20px;
+            grid-auto-rows: 180px;
+            gap: 18px;
             margin-top: 30px;
         }
 
-        /* 3. Definimos las variantes de tamaño de las tarjetas */
+        .card-mosaico.card-ancho { grid-column: span 2; }
+        .card-mosaico.card-alto { grid-row: span 2; }
 
-        /* Ocupa 2 columnas de ancho */
-        .card-mosaico.card-ancho {
-            grid-column: span 2;
-        }
-
-        /* Ocupa 2 filas de alto */
-        .card-mosaico.card-alto {
-            grid-row: span 2;
-        }
-
-        /* 4. Estilos Generales para todas las tarjetas del mosaico */
         .card-mosaico {
             background-color: var(--blanco);
             border-radius: 12px;
-            overflow: hidden; /* Importante para que las imágenes no se salgan */
-            position: relative; /* Para el hover de las imágenes */
+            overflow: hidden;
+            position: relative;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             display: flex;
             flex-direction: column;
@@ -203,30 +620,36 @@
             transition: transform 0.3s ease;
         }
 
-        /* Efecto al pasar el mouse por cualquier tarjeta */
-        .card-mosaico:hover {
-            transform: translateY(-5px);
-        }
+        .card-mosaico:hover { transform: translateY(-5px); }
 
-        /* Estilos específicos para la tarjeta de Información Principal */
         .card-info-principal {
             background-color: var(--morado-principal);
             color: var(--blanco);
             padding: 30px;
         }
 
-        .card-info-principal h2 {
+        .card-info-principal .subtitulo {
+            color: var(--amarillo-acento);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin: 0 0 8px;
+        }
+
+        .card-info-principal h3 {
             color: var(--blanco);
-            font-size: 2.2rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            margin: 0 0 10px;
         }
 
         .card-info-principal p {
-            font-size: 1.1rem;
-            line-height: 1.6;
+            font-size: 1rem;
             color: rgba(255, 255, 255, 0.9);
+            margin: 0;
         }
 
-        /* Estilos específicos para tarjetas con Fondo de Color */
         .card-color {
             padding: 25px;
             text-align: center;
@@ -234,300 +657,751 @@
             color: var(--blanco);
         }
 
-        /* Variante amarilla para contraste (La tarjeta de becas) */
         .card-becas {
             background-color: var(--amarillo-acento);
             color: var(--morado-principal);
         }
 
-        .card-becas h3 {
-            color: var(--morado-principal);
-            margin-top: 0;
-        }
+        .card-becas h3 { color: var(--morado-principal); margin-top: 0; }
+        .card-becas p { color: rgba(0,0,0,0.8); }
 
-        .card-becas p {
-            color: rgba(0,0,0,0.8);
-        }
-
-        /* Estilos específicos para tarjetas de Impacto (Con números grandes o iconos) */
         .card-impacto .cifra {
-            font-size: 3.5rem;
-            font-weight: bold;
+            font-size: 3.2rem;
+            font-weight: 700;
             color: var(--amarillo-acento);
-            margin-bottom: 10px;
+            line-height: 1;
         }
 
-        .card-impacto .icono {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-        }
+        .card-impacto h3 { color: var(--blanco); margin: 8px 0 0; }
+        .card-impacto p { margin: 6px 0 0; color: rgba(255,255,255,0.8); }
 
-        .card-impacto h3 {
-            color: var(--blanco);
-            margin: 0;
-        }
-
-        .card-impacto p {
-            margin: 5px 0 0;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        /* 5. ESTILOS PARA TARJETAS CON IMAGENES */
+        .card-con-imagen { min-height: 180px; }
         .card-con-imagen img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Hace que la imagen llene el espacio sin deformarse */
+            object-fit: cover;
             position: absolute;
-            top: 0;
-            left: 0;
+            inset: 0;
         }
 
-        /* Estilo para la capa de información al pasar el mouse sobre la imagen */
         .info-hover {
             position: absolute;
-            bottom: -100%; /* Oculto por defecto */
+            bottom: 0;
             left: 0;
             width: 100%;
-            padding: 20px;
+            padding: 18px;
             box-sizing: border-box;
             background: linear-gradient(to top, var(--morado-principal), transparent);
             color: var(--blanco);
-            transition: bottom 0.3s ease;
         }
 
-        .card-con-imagen:hover .info-hover {
-            bottom: 0; /* Muestra la info al hacer hover */
+        .info-hover h3 { color: var(--amarillo-acento); margin: 0; }
+        .info-hover p { margin: 5px 0 0; font-size: 0.9rem; }
+
+        /* CONTACTO */
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 28px;
+            background: var(--blanco);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
         }
 
-        .info-hover h3 {
+        .contacto-info {
+            background: var(--morado-principal);
+            color: var(--blanco);
+            padding: 40px;
+        }
+
+        .contacto-info h2 { color: var(--amarillo-acento); }
+        .contacto-info p { color: rgba(255,255,255,0.85); }
+        .dato { margin: 18px 0; }
+        .dato strong { display: block; color: var(--amarillo-acento); font-size: 0.82rem; letter-spacing: 1px; text-transform: uppercase; }
+
+        form { padding: 40px; display: grid; gap: 14px; }
+        .form-compacto { padding: 0; }
+        label { font-weight: 600; color: var(--morado-principal); font-size: 0.9rem; }
+        input, textarea, select {
+            width: 100%;
+            border: 1px solid #e4dce8;
+            border-radius: 12px;
+            padding: 12px 14px;
+            font: inherit;
+            background: #fcfafd;
+        }
+        textarea { min-height: 120px; resize: vertical; }
+        button[type="submit"] {
+            border: 0;
+            cursor: pointer;
+            justify-self: start;
+            font: inherit;
+        }
+
+        /* APÓYENOS */
+        .apoyo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .panel-apoyo {
+            background: var(--blanco);
+            border-radius: 22px;
+            padding: 32px;
+            box-shadow: var(--sombra);
+        }
+
+        .panel-apoyo.patrocinio {
+            background: var(--morado-principal);
+            color: var(--blanco);
+        }
+
+        .panel-apoyo.patrocinio h2,
+        .panel-apoyo.patrocinio .subtitulos { color: var(--amarillo-acento); }
+        .panel-apoyo.patrocinio p,
+        .panel-apoyo.patrocinio li { color: rgba(255,255,255,0.88); }
+        .panel-apoyo.patrocinio label { color: var(--amarillo-acento); }
+        .panel-apoyo.patrocinio input,
+        .panel-apoyo.patrocinio select,
+        .panel-apoyo.patrocinio textarea {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,204,0,0.35);
+            color: var(--blanco);
+        }
+
+        .montos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 8px 0 16px;
+        }
+
+        .monto {
+            border: 1px solid #e4dce8;
+            background: #fcfafd;
+            border-radius: 999px;
+            padding: 10px 16px;
+            cursor: pointer;
+            font: inherit;
+            font-weight: 600;
+            color: var(--morado-principal);
+        }
+
+        .monto.activo {
+            background: var(--amarillo-acento);
+            border-color: var(--amarillo-acento);
+        }
+
+        .planes {
+            display: grid;
+            gap: 12px;
+            margin: 18px 0 22px;
+        }
+
+        .plan {
+            border: 1px solid rgba(255,204,0,0.28);
+            border-radius: 14px;
+            padding: 14px 16px;
+        }
+
+        .plan strong { color: var(--amarillo-acento); display: block; margin-bottom: 4px; }
+        .plan span { font-size: 0.92rem; }
+
+        .datos-donacion {
+            background: #f4eef6;
+            border-radius: 14px;
+            padding: 16px;
+            margin: 12px 0 18px;
+            font-size: 0.95rem;
+        }
+
+        .btn-flotante {
+            position: fixed;
+            right: 0;
+            top: 42%;
+            z-index: 35;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            background: var(--amarillo-acento);
+            color: var(--morado-principal);
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 18px 12px;
+            border-radius: 12px 0 0 12px;
+            box-shadow: var(--sombra);
+        }
+
+        .panel-apoyo.patrocinio .aviso-envio {
+            background: rgba(255, 204, 0, 0.18);
             color: var(--amarillo-acento);
-            margin: 0;
         }
 
-        .info-hover p {
-            margin: 5px 0 0;
-            font-size: 0.9rem;
+        .btn-flotante:hover { background: #ffd84a; }
+
+        .aviso-envio {
+            display: none;
+            background: #eef9e8;
+            color: #215c18;
+            padding: 12px 14px;
+            border-radius: 10px;
         }
 
-        /* 6. DISEÑO RESPONSIVO (Imprescindible) */
+        /* FOOTER */
+        .footer-principal {
+            background-color: var(--morado-principal);
+            color: var(--blanco);
+            text-align: center;
+            padding: 36px 20px;
+        }
 
-        /* Pantallas Medianas (Tablets) */
-        @media (max-width: 900px) {
-            .contenedor-mosaico {
-                grid-template-columns: repeat(2, 1fr); /* Pasa a 2 columnas */
+        .footer-principal .redes { margin-top: 12px; }
+        .footer-principal .redes a {
+            color: var(--amarillo-acento);
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        @media (max-width: 980px) {
+            .menu { padding: 12px 18px; }
+            .btn-menu { display: block; }
+            .menu-navegacion {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--morado-principal);
+                padding: 12px 20px 20px;
             }
-
-            /* En este tamaño, las tarjetas anchas ocupan las 2 columnas */
-            .card-mosaico.card-ancho {
-                grid-column: span 2;
+            .menu-navegacion.abierto { display: block; }
+            .menu-navegacion ul { flex-direction: column; gap: 12px; }
+            .compania-layout,
+            .T-proyectos,
+            .festival-destacado,
+            .rejilla-festival,
+            .rejilla-talleres,
+            .contacto-grid,
+            .galeria-comunidad,
+            .apoyo-grid {
+                grid-template-columns: 1fr;
             }
+            .programacion li { grid-template-columns: 1fr; gap: 4px; }
+            .btn-flotante {
+                top: auto;
+                bottom: 18px;
+                right: 18px;
+                writing-mode: horizontal-tb;
+                transform: none;
+                border-radius: 999px;
+                padding: 12px 18px;
+            }
+            .galeria-comunidad { grid-template-rows: 280px 220px 220px; }
+            .galeria-comunidad figure:first-child { grid-row: auto; }
+            .contenedor-mosaico { grid-template-columns: 1fr 1fr; }
+            .card-mosaico.card-ancho { grid-column: span 2; }
+            .panel-foto { min-height: 360px; }
+            .cabecera-seccion { flex-direction: column; align-items: start; }
         }
 
-        /* Pantallas Pequeñas (Móviles) */
         @media (max-width: 600px) {
-            .contenedor-mosaico {
-                grid-template-columns: 1fr; /* Pasa a 1 columna */
-                gap: 15px;
-            }
-
-            /* En móvil, todas las tarjetas ocupan 1 columna, ignorando los anchos definidos */
-            .card-mosaico.card-ancho, .card-mosaico.card-alto {
+            .envolvente { width: calc(100% - 32px); }
+            .seccion { padding: 64px 0; }
+            .contenedor-mosaico { grid-template-columns: 1fr; }
+            .card-mosaico.card-ancho,
+            .card-mosaico.card-alto {
                 grid-column: span 1;
                 grid-row: span 1;
             }
-
-            /* Ajuste de padding de la sección */
-            .seccion-comunidad {
-                padding: 40px 20px;
-            }
-
-            /* Ajuste de alto de las imágenes para móviles */
-            .card-con-imagen {
-                height: 250px;
-            }
-        }
-        
-        .footer-principal { /* PIE DE PÁGINA (FOOTER) */
-        background-color: var(--morado-principal);
-        color: var(--blanco);
-        text-align: center;
-        padding: 30px 20px;
-        margin-top: 50px;
-        }
-
-        .footer-principal .redes {
-        margin-top: 15px;
-        }
-
-        .footer-principal .redes a {
-        color: var(--amarillo-acento);
-        margin: 0 10px;
-        text-decoration: none;
-        font-weight: bold;
+            .card-con-imagen { height: 240px; }
+            .grid-nosotros { grid-template-columns: 1fr; }
+            form, .contacto-info { padding: 24px; }
         }
     </style>
 </head>
 <body>
-    <header class="menu"> <!--Encabezado-->
-        <div class="logo"> ARDILA DANCE COMPANY <span></span></div>
+    <header class="menu">
+        <a class="logo" href="#inicio">ARDILA DANCE COMPANY<span>Arte · Movimiento · Comunidad</span></a>
+        <button class="btn-menu" type="button" aria-label="Abrir menú">Menú</button>
         <nav class="menu-navegacion">
             <ul>
-                <li><a href="#Inicio">Inicio</a></li>
-                <li><a href="#Compañia">Compañia</a></li>
-                <li><a href="#Obras">Obras</a></li>
-                <li><a href="#Festival & Talleres">Festival & Talleres</a></li>
-                <li><a href="#Comunidad">Comunidad</a></li>
-                <li><a href="#Vanguardia"> Vanguardia</a></li>
-                <li><a href="#Contacto">Contactenos</a></li>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#compania">Compañía</a></li>
+                <li><a href="#obras">Obras</a></li>
+                <li><a href="#festival">Festival & Talleres</a></li>
+                <li><a href="#comunidad">Comunidad</a></li>
+                <li><a href="#vanguardia">Vanguardia</a></li>
+                <li><a href="#apoyenos">Apóyenos</a></li>
+                <li><a href="#contacto">Contáctenos</a></li>
             </ul>
         </nav>
-    </header>  
+    </header>
 
-    <section id ="Inicio" class="hero">   <!--Inicio-->
-        <h1> Movimiento que transforma. Arte que conecta.</h1>
-        <!--<p>Movimiento que transforma. Arte que conecta.</p>-->
-    </section>
-
-    <section id="Compañia" class ="nosotros"> <!--Contenido de la compañia-->
-        <p class= "subtitulos">Quienes somos</p>
-        <h2>Mision</h2>
-        <p>Crear, difundir y promover el arte de la danza a través de propuestas escénicas innovadoras que impacten positivamente a nuestra comunidad, formando bailarines de alto nivel e inspirando a nuevos públicos.</p>
-        <h2>Vision</h2>
-        <p>Ser reconocidos a nivel nacional e internacional como una compañía líder en danza contemporánea y artes escénicas, destacándonos por la excelencia técnica, la creatividad narrativa y el compromiso social.</p>
-        <h2>Apoyamos</h2>
-        <p>Impulsamos el talento emergente, la inclusión social a través de las artes y la formación integral de jóvenes artistas, brindando espacios de creación, becas de formación y plataformas de proyección laboral.</p>
-        <h2>Trayectoria de Ardila Dance Company</h2>
-        <p>Con años de experiencia en la escena artística, hemos presentado múltiples producciones originales, participado en festivales de renombre y colaborado con destacados directores y coreógrafos de la industria.</p>
-        <h2>Personal y equipo</h2>
-        <p>Contamos con un equipo multidisciplinario de bailarines profesionales, coreógrafos, maestros y creativos técnicos apasionados por llevar el arte del movimiento a su máxima expresión</p>
-    </section>
-
-    <section id="Obras" class="seccion-obras">   <!--Obras teatrales-->
-        <p class = "subtitulos"> Lo que hacemos </p>
-        <h2>Nuestras Obras</h2>
-
-        <div class = "T-proyectos">
-
-            <article class="Img-proyecto">      <!-- Panel para detallar las obras a mostrar-->
-                <img src = "foto" alt="Las mil y una noches">
-                <div class = "contenido">
-                    <h3> Mil y una noches</h3>
-                    <!--<a href="obra1.html" class="ver-mas">Ver más →</a>-->  <!--codigo para ir a ver mas detalle de la obra1-->
-                </div>
-            </article>
-
-            <article class="Img-proyecto">      <!-- Panel para detallar las obras a mostrar-->
-                <img src = "foto" alt="Romeo & Julieta">
-                <div class = "contenido">
-                    <h3> Romeo & Julieta</h3>
-                    <!--<a href="obra1.html" class="ver-mas">Ver más →</a>-->  <!--codigo para ir a ver mas detalle de la obra1-->
-                </div>
-            </article>
-
-            <article class="Img-proyecto">      <!-- Panel para detallar las obras a mostrar-->
-                <img src = "foto" alt="100 años de soledad">
-                <div class = "contenido">
-                    <h3> 100 años de soledad</h3>
-                    <!--<a href="obra1.html" class="ver-mas">Ver más →</a>-->  <!--codigo para ir a ver mas detalle de la obra1-->
-                </div>
-            </article>
-        </div>        
-    </section>
-
-    <section id="Festival & Talleres" Class="fest-taller">
-        <p class = "subtitulos"> Festival & Talleres </p>
-        <div class = "contenido">
-            <h2>Festival</h2>
-            <li>Proximas ediciones</li>
-            <li>Invitados</li>
-            <li>Programacion</li>
-            <li>Actividades</li>
-            <li>Espacios</li>
-            <li>Inscripciones</li>
-            <a href="festival.html" class="ver-mas">Mas informacion ...</a>
-            <h2>Talleres</h2>
-            <li>Listado de Talleres</li>
-            <li>Fecha y hora</li>
-            <li>Lugar</li>
-            <li>Facilitador</li>
-            <li>Descripcion</li>
-            <li>Inscripcion o contacto</li>
-            <a href="taller.html" class="ver-mas">Mas informacion ...</a>
+    <section id="inicio" class="hero">
+        <div class="hero-media" aria-hidden="true">
+            <img src="img/hero.jpg" alt="">
+        </div>
+        <div class="hero-contenido">
+            <p class="hero-etiqueta">Compañía de danza contemporánea</p>
+            <h1>Movimiento que transforma. Arte que conecta.</h1>
+            <p>Propuestas escénicas, formación y comunidad alrededor del arte del movimiento.</p>
+            <div class="acciones">
+                <a class="boton boton-principal" href="#obras">Ver obras</a>
+                <a class="boton boton-secundario" href="#apoyenos">Apóyenos</a>
+            </div>
         </div>
     </section>
 
-    <section id="Comunidad" Class="fest-taller">
-        <p class = "subtitulos"> Comunidad </p>
-    </section>
-
-    <section id="Vanguardia" Class="seccion-comunidad">
-        <p class = "subtitulos"> Vanguardia </p>
-        <div class="contenedor-mosaico">
-            
-            <article class="card-mosaico card-ancho card-info-principal"> <!-- TARJETA 1: Título con descripción -->
-                <p class="subtitulo">Dimensión Comunitaria</p>
-                <h2>Danza que Transforma Vidas</h2>
-                <p>En Ardila Dance Company creemos que la danza es una herramienta poderosa para el cambio social, la inclusión y el fortalecimiento de los lazos comunitarios. Llevamos el movimiento más allá del escenario.</p>
-            </article>
-            
-            <article class="card-mosaico card-con-imagen"> <!-- TARJETA 2: Proyecto Social Principal - tiene una imagen -->
-                <img src="foto" alt="Taller de danza en la comunidad">
-                <div class="info-hover">
-                    <h3>Talleres Barriales</h3>
-                    <p>Llevamos la danza a comunidades vulnerables.</p>
+    <section id="compania" class="seccion">
+        <div class="envolvente">
+            <p class="subtitulos">Quiénes somos</p>
+            <div class="cabecera-seccion">
+                <h2>La compañía</h2>
+                <p class="intro-seccion">Crear, difundir y promover el arte de la danza a través de propuestas escénicas innovadoras que impacten positivamente a nuestra comunidad.</p>
+            </div>
+            <div class="compania-layout">
+                <div class="grid-nosotros">
+                    <article class="tarjeta-info">
+                        <h3>Misión</h3>
+                        <p>Crear, difundir y promover el arte de la danza a través de propuestas escénicas innovadoras que impacten positivamente a nuestra comunidad, formando bailarines de alto nivel e inspirando a nuevos públicos.</p>
+                    </article>
+                    <article class="tarjeta-info">
+                        <h3>Visión</h3>
+                        <p>Ser reconocidos a nivel nacional e internacional como una compañía líder en danza contemporánea y artes escénicas, destacándonos por la excelencia técnica, la creatividad narrativa y el compromiso social.</p>
+                    </article>
+                    <article class="tarjeta-info">
+                        <h3>Apoyamos</h3>
+                        <p>Impulsamos el talento emergente, la inclusión social a través de las artes y la formación integral de jóvenes artistas, brindando espacios de creación, becas de formación y plataformas de proyección laboral.</p>
+                    </article>
+                    <article class="tarjeta-info">
+                        <h3>Personal y equipo</h3>
+                        <p>Contamos con un equipo multidisciplinario de bailarines profesionales, coreógrafos, maestros y creativos técnicos apasionados por llevar el arte del movimiento a su máxima expresión.</p>
+                    </article>
+                    <article class="tarjeta-info ancha">
+                        <h3>Trayectoria de Ardila Dance Company</h3>
+                        <p>Con años de experiencia en la escena artística, hemos presentado múltiples producciones originales, participado en festivales de renombre y colaborado con destacados directores y coreógrafos de la industria.</p>
+                    </article>
                 </div>
-            </article>
-            
-            <article class="card-mosaico card-color card-impacto"> <!-- TARJETA 3: Dato de Impacto-->
-                <span class="cifra">100+</span>
-                <p>Estudiantes beneficiados en nuestros programas anuales.</p>
-            </article>
-
-            <!-- TARJETA 4: Imagen Testimonial (Ocupa 1 columna) -->
-            <article class="card-mosaico card-con-imagen">
-                <img src="foto" alt="Sonrisa de un bailarín joven">
-                <div class="info-hover">
-                    <h3>Testimonio: Ana R.</h3>
-                    <p>"La danza me dio confianza y una familia."</p>
-                </div>
-            </article>
-
-            <!-- TARJETA 5: Programa de Becas (Ocupa 2 columnas, texto y fondo de color) -->
-            <article class="card-mosaico card-ancho card-color card-becas">
-                <h3>Programa de Becas "Semillas de Movimiento"</h3>
-                <p>Apoyamos la formación profesional de jóvenes talentos sin recursos, cubriendo matrícula, vestuario y transporte para que puedan cumplir sus sueños.</p>
-            </article>
-
-            <!-- TARJETA 6: Imagen de Evento (Ocupa 1 columna) -->
-            <article class="card-mosaico card-con-imagen">
-                <img src="foto" alt="Presentación comunitaria en plaza pública">
-                <div class="info-hover">
-                    <h3>Presentaciones en Espacios Públicos</h3>
-                    <p>Haciendo el arte accesible para todos en parques y plazas.</p>
-                </div>
-            </article>
-
-            <!-- TARJETA 7: Un Dato de Impacto o Icono (Ocupa 1 columna) -->
-            <article class="card-mosaico card-color card-impacto">
-                <div class="icono">🤝</div>
-                <h3>15+ Alianzas</h3>
-                <p>Colaboramos con ONGs y escuelas locales.</p>
-            </article>
-
+                <figure class="panel-foto">
+                    <img src="img/compania.jpg" alt="Pareja de baile en escena, Ardila Dance Company">
+                    <figcaption>
+                        <strong>Escena y oficio</strong>
+                        <p>El cuerpo como lenguaje: técnica, emoción y presencia sobre el escenario.</p>
+                    </figcaption>
+                </figure>
+            </div>
         </div>
     </section>
 
-    <section id="Contacto" Class="fest-taller">
-        <p class = "subtitulos"> Contactenos </p>
+    <section id="obras" class="seccion fondo-oscuro">
+        <div class="envolvente">
+            <p class="subtitulos">Lo que hacemos</p>
+            <h2>Nuestras obras</h2>
+            <p class="intro-seccion">Tres universos escénicos que cruzan literatura, mito y movimiento.</p>
+            <div class="T-proyectos">
+                <article class="Img-proyecto">
+                    <div class="foto">
+                        <img src="img/vanguardia-3.jpg" alt="Telón y escena teatral de Las mil y una noches">
+                    </div>
+                    <div class="contenido">
+                        <h3>Mil y una noches</h3>
+                        <p>Un viaje de relatos, seducción y resistencia, donde cada escena abre otra historia sobre el escenario.</p>
+                    </div>
+                </article>
+                <article class="Img-proyecto">
+                    <div class="foto">
+                        <img src="img/obra-romeo.jpg" alt="Escena teatral de Romeo y Julieta">
+                    </div>
+                    <div class="contenido">
+                        <h3>Romeo & Julieta</h3>
+                        <p>La tragedia clásica reescrita en danza: dos cuerpos, dos bandos y un amor que no cabe en el mundo.</p>
+                    </div>
+                </article>
+                <article class="Img-proyecto">
+                    <div class="foto">
+                        <img src="img/vanguardia-1.jpg" alt="Escena de danza inspirada en Cien años de soledad">
+                    </div>
+                    <div class="contenido">
+                        <h3>100 años de soledad</h3>
+                        <p>Macondo hecho movimiento: memoria, linaje y realismo mágico que habita el cuerpo de la compañía.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
     </section>
 
-    <footer class = footer-principal>
-    <p>&copy; 2026 ARDILA DANCE COMPANY. Todos los derechos reservados.</p>
-    <div class="redes">
-      <a href="#">Facebook</a>
-      <a href="#">Instagram</a>
-    </div>
-  </footer>
+    <section id="festival" class="seccion">
+        <div class="envolvente">
+            <p class="subtitulos">Encuentros</p>
+            <h2>Festival & talleres</h2>
+            <p class="intro-seccion">Espacios para ver, aprender y compartir la danza con artistas invitados y la comunidad.</p>
+            <div class="pestañas" role="tablist">
+                <button class="pestaña activa" type="button" data-panel="panel-festival">Festival</button>
+                <button class="pestaña" type="button" data-panel="panel-talleres">Talleres</button>
+            </div>
 
+            <div id="panel-festival" class="panel-encuentro visible">
+                <article class="festival-destacado">
+                    <div class="foto">
+                        <img src="img/festival.jpg" alt="Público y luces de escenario en el festival">
+                    </div>
+                    <div class="info">
+                        <p class="etiqueta">Próxima edición</p>
+                        <h3>Festival Ardila de Danza 2026</h3>
+                        <p>Una semana de funciones, clases magistrales y encuentros abiertos alrededor del movimiento contemporáneo.</p>
+                        <div class="meta-festival">
+                            <div><span>Fechas</span> 12 al 15 de noviembre</div>
+                            <div><span>Ciudad</span> Temporada en teatro y espacios públicos</div>
+                            <div><span>Inscripciones</span> Abiertas para público, compañías y estudiantes</div>
+                        </div>
+                        <a class="boton boton-principal" href="#contacto">Inscribirme al festival</a>
+                    </div>
+                </article>
+
+                <div class="rejilla-festival">
+                    <article class="dato-festival">
+                        <h4>Invitados</h4>
+                        <p>Compañías nacionales, maestros invitados y creadores emergentes que dialogan con el repertorio de Ardila.</p>
+                    </article>
+                    <article class="dato-festival">
+                        <h4>Actividades</h4>
+                        <p>Funciones de temporada, conversatorios, clases abiertas, muestra de talleres y feria de escuelas.</p>
+                    </article>
+                    <article class="dato-festival">
+                        <h4>Espacios</h4>
+                        <p>Teatro principal, estudio de la compañía, plazas y salas alternativas para acercar la danza a más públicos.</p>
+                    </article>
+                    <article class="dato-festival">
+                        <h4>Inscripciones</h4>
+                        <p>Público general, artistas y estudiantes. Cupos limitados en talleres y funciones de sala.</p>
+                    </article>
+                </div>
+
+                <div class="programacion">
+                    <h4>Programación</h4>
+                    <ol>
+                        <li><time>Jueves 12</time> Apertura oficial y función de <em>Mil y una noches</em>.</li>
+                        <li><time>Viernes 13</time> Clase magistral, conversatorio con invitados y <em>Romeo & Julieta</em>.</li>
+                        <li><time>Sábado 14</time> Funciones comunitarias y <em>100 años de soledad</em>.</li>
+                        <li><time>Domingo 15</time> Muestra de talleres y clausura del festival.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div id="panel-talleres" class="panel-encuentro">
+                <div class="rejilla-talleres">
+                    <article class="tarjeta-taller">
+                        <div class="foto">
+                            <img src="img/vanguardia-2.jpg" alt="Taller de técnica contemporánea">
+                            <span class="chip">Técnica</span>
+                        </div>
+                        <div class="contenido">
+                            <h3>Cuerpo contemporáneo</h3>
+                            <p>Trabajo de peso, suelo y presencia escénica para bailarines en formación y profesionales.</p>
+                            <ul class="ficha-taller">
+                                <li><strong>Fecha y hora:</strong> sábados, 9:00 a 11:00 a.m.</li>
+                                <li><strong>Lugar:</strong> estudio de la compañía</li>
+                                <li><strong>Facilitador:</strong> cuerpo docente Ardila Dance</li>
+                            </ul>
+                            <a href="#contacto" class="ver-mas">Inscripción o contacto →</a>
+                        </div>
+                    </article>
+
+                    <article class="tarjeta-taller">
+                        <div class="foto">
+                            <img src="img/obra-romeo.jpg" alt="Taller de composición coreográfica">
+                            <span class="chip">Creación</span>
+                        </div>
+                        <div class="contenido">
+                            <h3>Composición y relato</h3>
+                            <p>Herramientas para construir frases, escenas y dramaturgia a partir del movimiento.</p>
+                            <ul class="ficha-taller">
+                                <li><strong>Fecha y hora:</strong> sábados, 11:30 a.m. a 1:30 p.m.</li>
+                                <li><strong>Lugar:</strong> sala negra</li>
+                                <li><strong>Facilitador:</strong> coreógrafos de la compañía</li>
+                            </ul>
+                            <a href="#contacto" class="ver-mas">Inscripción o contacto →</a>
+                        </div>
+                    </article>
+
+                    <article class="tarjeta-taller">
+                        <div class="foto">
+                            <img src="img/hero.jpg" alt="Taller de danza comunitaria">
+                            <span class="chip">Comunidad</span>
+                        </div>
+                        <div class="contenido">
+                            <h3>Danza en el barrio</h3>
+                            <p>Metodologías para llevar el movimiento a escuelas, plazas y procesos de inclusión.</p>
+                            <ul class="ficha-taller">
+                                <li><strong>Fecha y hora:</strong> miércoles, 4:00 a 6:00 p.m.</li>
+                                <li><strong>Lugar:</strong> espacios comunitarios aliados</li>
+                                <li><strong>Facilitador:</strong> equipo de formación social</li>
+                            </ul>
+                            <a href="#contacto" class="ver-mas">Inscripción o contacto →</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="comunidad" class="seccion" style="padding-top: 0;">
+        <div class="envolvente">
+            <p class="subtitulos">Comunidad</p>
+            <h2>La danza más allá del teatro</h2>
+            <p class="intro-seccion">Talleres, presentaciones abiertas y procesos de formación que acercan el movimiento a barrios, escuelas y plazas.</p>
+            <div class="galeria-comunidad">
+                <figure>
+                    <img src="img/hero.jpg" alt="Bailarín contemporáneo en movimiento">
+                    <figcaption>Creación contemporánea</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/obra-romeo.jpg" alt="Bailarinas en escena">
+                    <figcaption>Formación técnica</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/vanguardia-1.jpg" alt="Tres bailarinas en escena">
+                    <figcaption>Ensayo de compañía</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/compania.jpg" alt="Pareja de danza en escena">
+                    <figcaption>Escena colectiva</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/vanguardia-2.jpg" alt="Bailarín contemporáneo en estudio">
+                    <figcaption>Nuevos lenguajes</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <section id="vanguardia" class="seccion">
+        <div class="envolvente">
+            <p class="subtitulos">Vanguardia</p>
+            <h2>Danza que transforma vidas</h2>
+            <div class="contenedor-mosaico">
+                <article class="card-mosaico card-ancho card-alto card-info-principal">
+                    <p class="subtitulo">Dimensión comunitaria</p>
+                    <h3>Movimiento con sentido social</h3>
+                    <p>En Ardila Dance Company creemos que la danza es una herramienta poderosa para el cambio social, la inclusión y el fortalecimiento de los lazos comunitarios. Llevamos el movimiento más allá del escenario.</p>
+                </article>
+
+                <article class="card-mosaico card-con-imagen card-alto">
+                    <img src="img/hero.jpg" alt="Taller de movimiento en la comunidad">
+                    <div class="info-hover">
+                        <h3>Talleres barriales</h3>
+                        <p>Llevamos la danza a comunidades vulnerables.</p>
+                    </div>
+                </article>
+
+                <article class="card-mosaico card-color card-impacto">
+                    <span class="cifra">100+</span>
+                    <p>Estudiantes beneficiados en nuestros programas anuales.</p>
+                </article>
+
+                <article class="card-mosaico card-con-imagen">
+                    <img src="img/vanguardia-2.jpg" alt="Joven bailarín">
+                    <div class="info-hover">
+                        <h3>Testimonio: Ana R.</h3>
+                        <p>"La danza me dio confianza y una familia."</p>
+                    </div>
+                </article>
+
+                <article class="card-mosaico card-ancho card-color card-becas">
+                    <h3>Programa de becas «Semillas de Movimiento»</h3>
+                    <p>Apoyamos la formación profesional de jóvenes talentos sin recursos, cubriendo matrícula, vestuario y transporte para que puedan cumplir sus sueños.</p>
+                </article>
+
+                <article class="card-mosaico card-con-imagen">
+                    <img src="img/vanguardia-3.jpg" alt="Presentación en un teatro">
+                    <div class="info-hover">
+                        <h3>Presentaciones en espacios públicos</h3>
+                        <p>Haciendo el arte accesible para todos en parques y plazas.</p>
+                    </div>
+                </article>
+
+                <article class="card-mosaico card-color card-impacto">
+                    <h3>15+ alianzas</h3>
+                    <p>Colaboramos con ONG y escuelas locales.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="apoyenos" class="seccion" style="padding-top: 0;">
+        <div class="envolvente">
+            <p class="subtitulos">Sostener el movimiento</p>
+            <h2>Apóyenos</h2>
+            <p class="intro-seccion">Tu aporte hace posible las obras, las becas «Semillas de Movimiento» y los talleres en comunidad. Puedes donar como persona o patrocinar como empresa.</p>
+            <div class="apoyo-grid">
+                <article class="panel-apoyo">
+                    <p class="subtitulos">Donaciones</p>
+                    <h2>Dona</h2>
+                    <p>Elige un monto o escribe el valor que desees aportar. Te enviaremos los datos para transferir.</p>
+                    <form id="form-donacion" class="form-compacto">
+                        <div class="montos" role="group" aria-label="Montos sugeridos">
+                            <button class="monto activo" type="button" data-monto="30000">$30.000</button>
+                            <button class="monto" type="button" data-monto="80000">$80.000</button>
+                            <button class="monto" type="button" data-monto="150000">$150.000</button>
+                            <button class="monto" type="button" data-monto="otro">Otro</button>
+                        </div>
+                        <label for="monto-libre">Monto (COP)</label>
+                        <input id="monto-libre" name="monto" type="number" min="10000" step="1000" value="30000" required>
+                        <label for="nombre-donante">Nombre</label>
+                        <input id="nombre-donante" name="nombre" type="text" required placeholder="Tu nombre">
+                        <label for="correo-donante">Correo</label>
+                        <input id="correo-donante" name="correo" type="email" required placeholder="tucorreo@email.com">
+                        <div class="datos-donacion">
+                            <strong>Transferencia</strong><br>
+                            Ardila Dance Company<br>
+                            Nequi / ahorro · se confirma al recibir tu solicitud<br>
+                            Destino: becas, vestuario y presentaciones comunitarias
+                        </div>
+                        <button class="boton boton-principal" type="submit">Quiero donar</button>
+                        <p class="aviso-envio" id="aviso-donacion">Gracias por tu donación. Te escribiremos con los datos de pago.</p>
+                    </form>
+                </article>
+
+                <article class="panel-apoyo patrocinio">
+                    <p class="subtitulos">Empresas y aliados</p>
+                    <h2>Patrocina</h2>
+                    <p>Asocia tu marca a la escena, el festival y los programas de formación.</p>
+                    <div class="planes">
+                        <div class="plan">
+                            <strong>Amigo · desde $1.500.000</strong>
+                            <span>Mención en redes, programa de mano y un bloque de entradas.</span>
+                        </div>
+                        <div class="plan">
+                            <strong>Aliado · desde $4.000.000</strong>
+                            <span>Logo en escena, taller exclusivo para tu equipo y presencia en el festival.</span>
+                        </div>
+                        <div class="plan">
+                            <strong>Productor · a convenir</strong>
+                            <span>Coproducción de una obra o temporada, con visibilidad principal.</span>
+                        </div>
+                    </div>
+                    <form id="form-patrocinio" class="form-compacto">
+                        <label for="empresa">Empresa u organización</label>
+                        <input id="empresa" name="empresa" type="text" required placeholder="Nombre de la empresa">
+                        <label for="plan">Plan de interés</label>
+                        <select id="plan" name="plan" required>
+                            <option value="amigo">Amigo</option>
+                            <option value="aliado">Aliado</option>
+                            <option value="productor">Productor</option>
+                        </select>
+                        <label for="correo-patrocinio">Correo</label>
+                        <input id="correo-patrocinio" name="correo" type="email" required placeholder="contacto@empresa.com">
+                        <label for="mensaje-patrocinio">Mensaje</label>
+                        <textarea id="mensaje-patrocinio" name="mensaje" placeholder="Cuéntanos cómo te gustaría acompañar a la compañía"></textarea>
+                        <button class="boton boton-principal" type="submit">Quiero patrocinar</button>
+                        <p class="aviso-envio" id="aviso-patrocinio">Recibimos tu interés. El equipo de alianzas te contactará para armar la propuesta.</p>
+                    </form>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="seccion" style="padding-top: 0;">
+        <div class="envolvente">
+            <div class="contacto-grid">
+                <div class="contacto-info">
+                    <p class="subtitulos" style="color: var(--amarillo-acento);">Contáctenos</p>
+                    <h2>Hablemos de danza</h2>
+                    <p>Escríbenos para funciones, talleres, alianzas, donaciones o el programa de becas.</p>
+                    <div class="dato">
+                        <strong>Correo</strong>
+                        contacto@ardiladance.com
+                    </div>
+                    <div class="dato">
+                        <strong>Redes</strong>
+                        Facebook · Instagram
+                    </div>
+                </div>
+                <form id="form-contacto">
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" name="nombre" type="text" required placeholder="Tu nombre">
+                    <label for="correo">Correo</label>
+                    <input id="correo" name="correo" type="email" required placeholder="tucorreo@email.com">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" required placeholder="Cuéntanos cómo podemos acompañarte"></textarea>
+                    <button class="boton boton-principal" type="submit">Enviar mensaje</button>
+                    <p class="aviso-envio" id="aviso-envio">Gracias. Recibimos tu mensaje y te contactaremos pronto.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <a class="btn-flotante" href="#apoyenos">Apóyenos</a>
+
+    <footer class="footer-principal">
+        <p>&copy; 2026 Ardila Dance Company. Todos los derechos reservados.</p>
+        <div class="redes">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+        const nav = document.querySelector('.menu-navegacion');
+        const botonMenu = document.querySelector('.btn-menu');
+        botonMenu.addEventListener('click', () => {
+            nav.classList.toggle('abierto');
+        });
+        nav.querySelectorAll('a').forEach((enlace) => {
+            enlace.addEventListener('click', () => nav.classList.remove('abierto'));
+        });
+
+        const pestanas = document.querySelectorAll('.pestaña');
+        pestanas.forEach((boton) => {
+            boton.addEventListener('click', () => {
+                pestanas.forEach((item) => item.classList.remove('activa'));
+                boton.classList.add('activa');
+                document.querySelectorAll('.panel-encuentro').forEach((panel) => panel.classList.remove('visible'));
+                document.getElementById(boton.dataset.panel).classList.add('visible');
+            });
+        });
+
+        const media = document.querySelector('.hero-media img');
+        window.addEventListener('scroll', () => {
+            const desplazamiento = window.scrollY * 0.25;
+            media.style.setProperty('--parallax', desplazamiento + 'px');
+            media.style.transform = 'translateY(' + desplazamiento + 'px)';
+        }, { passive: true });
+
+        document.getElementById('form-contacto').addEventListener('submit', (evento) => {
+            evento.preventDefault();
+            document.getElementById('aviso-envio').style.display = 'block';
+            evento.target.reset();
+        });
+
+        const montos = document.querySelectorAll('.monto');
+        const campoMonto = document.getElementById('monto-libre');
+        montos.forEach((boton) => {
+            boton.addEventListener('click', () => {
+                montos.forEach((item) => item.classList.remove('activo'));
+                boton.classList.add('activo');
+                if (boton.dataset.monto === 'otro') {
+                    campoMonto.value = '';
+                    campoMonto.focus();
+                } else {
+                    campoMonto.value = boton.dataset.monto;
+                }
+            });
+        });
+
+        document.getElementById('form-donacion').addEventListener('submit', (evento) => {
+            evento.preventDefault();
+            document.getElementById('aviso-donacion').style.display = 'block';
+        });
+
+        document.getElementById('form-patrocinio').addEventListener('submit', (evento) => {
+            evento.preventDefault();
+            document.getElementById('aviso-patrocinio').style.display = 'block';
+            evento.target.reset();
+        });
+    </script>
 </body>
 </html>
