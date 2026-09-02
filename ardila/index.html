@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ardila Dance Company | Programa de Cuerpo y Alma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+    <header class="menu">
+        <a class="logo" href="../index.html">
+            <img class="logo-img" src="../img/cuerpo-y-alma.png" alt="Cuerpo y Alma, corporación para el desarrollo artístico">
+        </a>
+        <button class="btn-menu" type="button" aria-label="Abrir menú">Menú</button>
+        <nav class="menu-navegacion">
+            <ul>
+                <li><a href="../index.html">Cuerpo y Alma</a></li>
+                <li><a class="activa" href="#compania">La compañía</a></li>
+                <li><a href="#obras">Obras</a></li>
+                <li><a href="#festival">Festival</a></li>
+                <li><a href="#comunidad">Comunidad</a></li>
+                <li><a href="../index.html#equipo">Equipo</a></li>
+                <li><a class="nav-cta" href="../index.html#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="ardila">
+        <div class="hero-media" aria-hidden="true"><img src="../img/hero.jpg" alt=""></div>
+        <div class="hero-contenido">
+            <p class="hero-etiqueta">Programa de danza contemporánea</p>
+            <h1>Ardila Dance Company</h1>
+            <p>Movimiento que transforma. Arte que conecta. Una compañía que pertenece a la Corporación Cuerpo y Alma.</p>
+            <div class="acciones">
+                <a class="boton boton-principal" href="#obras">Ver obras</a>
+                <a class="boton boton-secundario" href="#festival">Festival y talleres</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion seccion-clara" id="compania">
+        <div class="envolvente">
+            <p class="subtitulos">El programa</p>
+            <h2>La compañía</h2>
+            <p class="intro-seccion">Crear, difundir y promover el arte de la danza a través de propuestas escénicas innovadoras que impacten positivamente a nuestra comunidad. Ardila no es toda Cuerpo y Alma: es el brazo de danza contemporánea.</p>
+            <div class="ejes">
+                <article class="eje">
+                    <p class="num">01</p>
+                    <h3>Misión</h3>
+                    <p>Crear, difundir y promover el arte de la danza con propuestas escénicas que impacten a la comunidad, formando bailarines e inspirando a nuevos públicos.</p>
+                </article>
+                <article class="eje">
+                    <p class="num">02</p>
+                    <h3>Visión</h3>
+                    <p>Ser una compañía referente en danza contemporánea, reconocida por la excelencia técnica, la creatividad narrativa y el compromiso social.</p>
+                </article>
+                <article class="eje">
+                    <p class="num">03</p>
+                    <h3>Lo que hacemos</h3>
+                    <p>Impulsamos talento emergente, inclusión a través de las artes y formación de jóvenes artistas. Ardila Dance Company forma parte de Cuerpo y Alma.</p>
+                    <ul class="lista-hacemos">
+                        <li><strong>Escena</strong> Producciones originales y temporada de la compañía.</li>
+                        <li><strong>Formación</strong> Clases, talleres y becas para jóvenes artistas.</li>
+                        <li><strong>Comunidad</strong> Danza en barrios, escuelas y espacios públicos.</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion fondo-oscuro" id="obras">
+        <div class="envolvente">
+            <p class="subtitulos">Lo que hacemos</p>
+            <h2>Nuestras obras</h2>
+            <p class="intro-seccion">Tres universos escénicos que cruzan literatura, mito y movimiento.</p>
+            <div class="T-proyectos">
+                <article class="Img-proyecto">
+                    <div class="foto"><img src="../img/vanguardia-3.jpg" alt="Mil y una noches"></div>
+                    <div class="contenido">
+                        <h3>Mil y una noches</h3>
+                        <p>Un viaje de relatos, seducción y resistencia, donde cada escena abre otra historia sobre el escenario.</p>
+                    </div>
+                </article>
+                <article class="Img-proyecto">
+                    <div class="foto"><img src="../img/obra-romeo.jpg" alt="Romeo y Julieta"></div>
+                    <div class="contenido">
+                        <h3>Romeo &amp; Julieta</h3>
+                        <p>La tragedia clásica reescrita en danza: dos cuerpos, dos bandos y un amor que no cabe en el mundo.</p>
+                    </div>
+                </article>
+                <article class="Img-proyecto">
+                    <div class="foto"><img src="../img/vanguardia-1.jpg" alt="100 años de soledad"></div>
+                    <div class="contenido">
+                        <h3>100 años de soledad</h3>
+                        <p>Macondo hecho movimiento: memoria, linaje y realismo mágico que habita el cuerpo de la compañía.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion seccion-clara" id="festival">
+        <div class="envolvente">
+            <p class="subtitulos">Encuentros</p>
+            <h2>Festival y talleres</h2>
+            <p class="intro-seccion">Espacios para ver, aprender y compartir la danza con artistas invitados y la comunidad.</p>
+            <div class="pestañas" role="tablist">
+                <button class="pestaña activa" type="button" data-panel="panel-festival">Festival</button>
+                <button class="pestaña" type="button" data-panel="panel-talleres">Talleres</button>
+            </div>
+            <div id="panel-festival" class="panel-encuentro visible">
+                <article class="festival-destacado">
+                    <div class="foto"><img src="../img/festival.jpg" alt="Festival"></div>
+                    <div class="info">
+                        <p class="etiqueta">Próxima edición</p>
+                        <h3>Festival Ardila de Danza 2026</h3>
+                        <p>Una semana de funciones, clases magistrales y encuentros abiertos alrededor del movimiento contemporáneo.</p>
+                        <div class="meta-festival">
+                            <div><span>Fechas</span> 12 al 15 de noviembre</div>
+                            <div><span>Ciudad</span> Temporada en teatro y espacios públicos</div>
+                            <div><span>Inscripciones</span> Abiertas para público, compañías y estudiantes</div>
+                        </div>
+                        <a class="boton boton-principal" href="../index.html#contacto">Inscribirme al festival</a>
+                    </div>
+                </article>
+                <div class="rejilla-festival">
+                    <article class="dato-festival"><h4>Invitados</h4><p>Compañías nacionales, maestros invitados y creadores emergentes.</p></article>
+                    <article class="dato-festival"><h4>Actividades</h4><p>Funciones, conversatorios, clases abiertas y muestra de talleres.</p></article>
+                    <article class="dato-festival"><h4>Espacios</h4><p>Teatro, estudio, plazas y salas alternativas.</p></article>
+                    <article class="dato-festival"><h4>Inscripciones</h4><p>Público, artistas y estudiantes. Cupos limitados.</p></article>
+                </div>
+                <div class="programacion">
+                    <h4>Programación</h4>
+                    <ol>
+                        <li><time>Jueves 12</time> Apertura y <em>Mil y una noches</em>.</li>
+                        <li><time>Viernes 13</time> Clase magistral y <em>Romeo &amp; Julieta</em>.</li>
+                        <li><time>Sábado 14</time> Funciones comunitarias y <em>100 años de soledad</em>.</li>
+                        <li><time>Domingo 15</time> Muestra de talleres y clausura.</li>
+                    </ol>
+                </div>
+            </div>
+            <div id="panel-talleres" class="panel-encuentro">
+                <div class="rejilla-talleres">
+                    <article class="tarjeta-taller">
+                        <div class="foto"><img src="../img/vanguardia-2.jpg" alt="Técnica"><span class="chip">Técnica</span></div>
+                        <div class="contenido">
+                            <h3>Cuerpo contemporáneo</h3>
+                            <p>Peso, suelo y presencia escénica.</p>
+                            <ul class="ficha-taller">
+                                <li><strong>Fecha y hora:</strong> sábados, 9:00 a 11:00 a.m.</li>
+                                <li><strong>Lugar:</strong> estudio</li>
+                                <li><strong>Facilitador:</strong> cuerpo docente Ardila Dance</li>
+                            </ul>
+                            <a href="../index.html#contacto" class="ver-mas">Inscripción →</a>
+                        </div>
+                    </article>
+                    <article class="tarjeta-taller">
+                        <div class="foto"><img src="../img/obra-romeo.jpg" alt="Creación"><span class="chip">Creación</span></div>
+                        <div class="contenido">
+                            <h3>Composición y relato</h3>
+                            <p>Frases, escenas y dramaturgia del movimiento.</p>
+                            <ul class="ficha-taller">
+                                <li><strong>Fecha y hora:</strong> sábados, 11:30 a.m. a 1:30 p.m.</li>
+                                <li><strong>Lugar:</strong> sala negra</li>
+                                <li><strong>Facilitador:</strong> coreógrafos de la compañía</li>
+                            </ul>
+                            <a href="../index.html#contacto" class="ver-mas">Inscripción →</a>
+                        </div>
+                    </article>
+                    <article class="tarjeta-taller">
+                        <div class="foto"><img src="../img/hero.jpg" alt="Comunidad"><span class="chip">Comunidad</span></div>
+                        <div class="contenido">
+                            <h3>Danza en el barrio</h3>
+                            <p>Metodologías para escuelas y plazas.</p>
+                            <ul class="ficha-taller">
+                                <li><strong>Fecha y hora:</strong> miércoles, 4:00 a 6:00 p.m.</li>
+                                <li><strong>Lugar:</strong> espacios aliados</li>
+                                <li><strong>Facilitador:</strong> equipo de formación social</li>
+                            </ul>
+                            <a href="../index.html#contacto" class="ver-mas">Inscripción →</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion" id="comunidad">
+        <div class="envolvente">
+            <p class="subtitulos">Comunidad</p>
+            <h2>La danza más allá del teatro</h2>
+            <p class="intro-seccion">Talleres, presentaciones abiertas y procesos de formación que acercan el movimiento a barrios, escuelas y plazas.</p>
+            <div class="galeria-comunidad">
+                <figure><img src="../img/comunidad.jpg" alt="Encuentro comunitario"><figcaption>Encuentro con la comunidad</figcaption></figure>
+                <figure><img src="../img/obra-romeo.jpg" alt="Formación técnica"><figcaption>Formación técnica</figcaption></figure>
+                <figure><img src="../img/vanguardia-1.jpg" alt="Ensayo"><figcaption>Ensayo de compañía</figcaption></figure>
+                <figure><img src="../img/compania.jpg" alt="Escena colectiva"><figcaption>Escena colectiva</figcaption></figure>
+                <figure><img src="../img/vanguardia-2.jpg" alt="Nuevos lenguajes"><figcaption>Nuevos lenguajes</figcaption></figure>
+                <figure><img src="../img/festival.jpg" alt="Encuentro"><figcaption>Encuentro abierto</figcaption></figure>
+            </div>
+            <p class="subtitulos" style="margin-top:48px;">Vanguardia</p>
+            <h2>Danza que transforma vidas</h2>
+            <div class="contenedor-mosaico">
+                <article class="card-mosaico card-ancho card-alto card-info-principal">
+                    <p class="subtitulo">Dimensión comunitaria</p>
+                    <h3>Movimiento con sentido social</h3>
+                    <p>En Ardila Dance Company, programa de Cuerpo y Alma, creemos que la danza es una herramienta para el cambio social y la inclusión.</p>
+                </article>
+                <article class="card-mosaico card-con-imagen card-alto">
+                    <img src="../img/comunidad.jpg" alt="Talleres y encuentro comunitario">
+                    <div class="info-hover"><h3>Talleres barriales</h3><p>Llevamos la danza a comunidades vulnerables.</p></div>
+                </article>
+                <article class="card-mosaico card-color card-impacto">
+                    <span class="cifra">100+</span>
+                    <p>Estudiantes beneficiados en nuestros programas anuales.</p>
+                </article>
+                <article class="card-mosaico card-con-imagen">
+                    <img src="../img/vanguardia-2.jpg" alt="Testimonio">
+                    <div class="info-hover"><h3>Testimonio: Ana R.</h3><p>"La danza me dio confianza y una familia."</p></div>
+                </article>
+                <article class="card-mosaico card-ancho card-color card-becas">
+                    <h3>Programa de becas «Semillas de Movimiento»</h3>
+                    <p>Apoyamos la formación profesional de jóvenes talentos, cubriendo matrícula, vestuario y transporte.</p>
+                </article>
+                <article class="card-mosaico card-con-imagen">
+                    <img src="../img/vanguardia-3.jpg" alt="Espacios públicos">
+                    <div class="info-hover"><h3>Presentaciones en espacios públicos</h3><p>Arte accesible en parques y plazas.</p></div>
+                </article>
+                <article class="card-mosaico card-color card-impacto">
+                    <h3>15+ alianzas</h3>
+                    <p>Colaboramos con ONG y escuelas locales.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <a class="btn-flotante" href="../index.html#apoyenos">Apóyenos</a>
+    <footer class="footer-principal">
+        <img class="logo-img" src="../img/cuerpo-y-alma.png" alt="Cuerpo y Alma, corporación para el desarrollo artístico">
+        <p>&copy; 2026 Corporación Cuerpo y Alma. Todos los derechos reservados.</p>
+        <a class="enlace-ig" href="https://www.instagram.com/corporacioncuerpoyalma" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16"><path fill="currentColor" d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm10 1.8H7A2.2 2.2 0 0 0 4.8 7v10A2.2 2.2 0 0 0 7 19.2h10a2.2 2.2 0 0 0 2.2-2.2V7A2.2 2.2 0 0 0 17 4.8zM12 8.2A3.8 3.8 0 1 1 8.2 12 3.8 3.8 0 0 1 12 8.2zm0 1.6A2.2 2.2 0 1 0 14.2 12 2.2 2.2 0 0 0 12 9.8zm4.55-3.05a.95.95 0 1 1-.95.95.95.95 0 0 1 .95-.95z"/></svg>
+            Ver más en IG
+        </a>
+        <form id="form-novedades" class="form-compacto" style="max-width: 360px; margin: 18px auto 0; display:flex; gap:8px; flex-wrap:wrap;">
+            <input type="email" required placeholder="Escribe tu email" aria-label="Correo para novedades" style="flex:1;">
+            <button class="boton boton-principal" type="submit">Unirme</button>
+            <p class="aviso-envio" id="aviso-novedades" style="flex-basis:100%;">Te avisaremos de actividades y convocatorias.</p>
+        </form>
+    </footer>
+    <script src="../js/sitio.js"></script>
+</body>
+</html>
