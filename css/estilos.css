@@ -977,11 +977,14 @@
             max-height: min(90vh, 920px);
             overflow: auto;
             margin: auto;
-            border: 1px solid rgba(201, 162, 39, 0.38);
+            border: 1px solid rgba(232, 200, 106, 0.32);
             border-radius: 20px;
             padding: 28px 30px 36px;
-            background: var(--crema);
-            color: var(--texto-oscuro);
+            background:
+                radial-gradient(ellipse at 18% 0%, rgba(232, 200, 106, 0.1), transparent 46%),
+                #16081f;
+            color: var(--blanco);
+            color-scheme: dark;
             box-shadow: 0 28px 80px rgba(8, 5, 16, 0.45);
         }
         .modal-apoyo::backdrop {
@@ -996,18 +999,18 @@
             margin-bottom: 8px;
         }
         .modal-apoyo h2 {
-            color: var(--indigo);
+            color: var(--amarillo-acento);
             margin: 0;
         }
         .modal-apoyo .intro-seccion {
-            color: #5a5360;
+            color: rgba(255, 255, 255, 0.8);
             max-width: 62ch;
             margin-bottom: 22px;
         }
         .cerrar-modal {
             border: 0;
             background: transparent;
-            color: var(--indigo);
+            color: var(--blanco);
             font-size: 2rem;
             line-height: 1;
             cursor: pointer;
@@ -2083,41 +2086,59 @@
         .carta-programa.menor p { font-size: 1.05rem; }
 
         .modal-apoyo .panel-apoyo {
-            background: rgba(255,255,255,0.72);
-            border: 1px solid rgba(201, 162, 39, 0.38);
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(18px);
+            border: 1px solid rgba(232, 200, 106, 0.32);
             box-shadow: none;
             border-radius: 20px;
+            padding: 24px;
         }
         .modal-apoyo .panel-apoyo h3 {
             font-family: 'Cormorant Garamond', Georgia, serif;
             font-size: 1.85rem;
             font-weight: 600;
-            color: var(--indigo);
+            color: var(--blanco);
             margin: 0 0 10px;
         }
         .modal-apoyo .panel-apoyo > p {
-            color: #5a5360;
+            color: rgba(255,255,255,0.8);
             font-size: 1.05rem;
             line-height: 1.55;
             margin: 0 0 14px;
         }
         .modal-apoyo .plan {
-            border-color: rgba(201, 162, 39, 0.32);
-            background: rgba(255,255,255,0.55);
+            border-color: rgba(232, 200, 106, 0.28);
+            background: rgba(255,255,255,0.05);
             padding: 10px 14px;
         }
-        .modal-apoyo .plan strong { color: var(--indigo); }
+        .modal-apoyo .plan strong { color: var(--oro-luz); }
+        .modal-apoyo .plan span { color: rgba(255,255,255,0.82); }
         .modal-apoyo .planes { margin: 12px 0 16px; }
         .modal-apoyo .datos-donacion {
-            background: rgba(18, 12, 34, 0.05);
-            border: 1px solid rgba(201, 162, 39, 0.22);
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(232, 200, 106, 0.22);
             margin: 8px 0 12px;
             padding: 12px 14px;
+            color: rgba(255,255,255,0.88);
         }
-        .modal-apoyo label { color: var(--indigo); }
+        .modal-apoyo label { color: var(--oro-luz); }
+        .modal-apoyo input,
+        .modal-apoyo textarea,
+        .modal-apoyo select {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(255,255,255,0.16);
+            color: var(--blanco);
+        }
+        .modal-apoyo input::placeholder,
+        .modal-apoyo textarea::placeholder {
+            color: rgba(255,255,255,0.42);
+        }
         .modal-apoyo textarea { min-height: 72px; }
         .modal-apoyo .form-compacto { gap: 10px; }
-        .modal-apoyo .panel-apoyo { padding: 24px; }
+        .modal-apoyo .aviso-envio {
+            background: rgba(232, 200, 106, 0.16);
+            color: var(--oro-luz);
+        }
 
         .escena-cierre .contacto-grid {
             background: transparent;
@@ -2294,6 +2315,49 @@
         html[data-tema="claro"] h2 { color: var(--indigo); }
         html[data-tema="claro"] .llamado-apoyo h2 { color: var(--blanco); }
         html[data-tema="claro"] .llamado-apoyo-texto p { color: rgba(255, 255, 255, 0.92); }
+
+        html[data-tema="claro"] .modal-apoyo {
+            background: var(--crema);
+            color: var(--texto-oscuro);
+            color-scheme: light;
+            border-color: rgba(201, 162, 39, 0.38);
+        }
+        html[data-tema="claro"] .modal-apoyo h2 { color: var(--indigo); }
+        html[data-tema="claro"] .modal-apoyo .intro-seccion { color: #5a5360; }
+        html[data-tema="claro"] .cerrar-modal { color: var(--indigo); }
+        html[data-tema="claro"] .modal-apoyo .panel-apoyo {
+            background: rgba(255,255,255,0.72);
+            border-color: rgba(201, 162, 39, 0.38);
+        }
+        html[data-tema="claro"] .modal-apoyo .panel-apoyo h3 { color: var(--indigo); }
+        html[data-tema="claro"] .modal-apoyo .panel-apoyo > p { color: #5a5360; }
+        html[data-tema="claro"] .modal-apoyo .plan {
+            border-color: rgba(201, 162, 39, 0.32);
+            background: rgba(255,255,255,0.55);
+        }
+        html[data-tema="claro"] .modal-apoyo .plan strong { color: var(--indigo); }
+        html[data-tema="claro"] .modal-apoyo .plan span { color: #5a5360; }
+        html[data-tema="claro"] .modal-apoyo .datos-donacion {
+            background: rgba(18, 12, 34, 0.05);
+            border-color: rgba(201, 162, 39, 0.22);
+            color: var(--texto-oscuro);
+        }
+        html[data-tema="claro"] .modal-apoyo label { color: var(--indigo); }
+        html[data-tema="claro"] .modal-apoyo input,
+        html[data-tema="claro"] .modal-apoyo textarea,
+        html[data-tema="claro"] .modal-apoyo select {
+            background: #fff;
+            border-color: #e4dce8;
+            color: var(--texto-oscuro);
+        }
+        html[data-tema="claro"] .modal-apoyo input::placeholder,
+        html[data-tema="claro"] .modal-apoyo textarea::placeholder {
+            color: #8a8490;
+        }
+        html[data-tema="claro"] .modal-apoyo .aviso-envio {
+            background: #eef9e8;
+            color: #215c18;
+        }
 
         @media (max-width: 980px) {
             html[data-tema="claro"] .menu-navegacion {
