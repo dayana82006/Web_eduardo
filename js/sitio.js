@@ -65,3 +65,22 @@ if (fotoTerritorio) {
         fotoTerritorio.style.transform = 'scale(1.06) translateY(' + (caja.top * -0.06) + 'px)';
     }, { passive: true });
 }
+
+const raiz = document.documentElement;
+const botonTema = document.querySelector('.btn-tema');
+
+function aplicarTema(tema) {
+    raiz.setAttribute('data-tema', tema);
+    try { localStorage.setItem('tema-cya', tema); } catch (error) {}
+    if (!botonTema) return;
+    const aClaro = tema === 'oscuro';
+    botonTema.setAttribute('aria-label', aClaro ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
+    botonTema.title = aClaro ? 'Tema claro' : 'Tema oscuro';
+}
+
+aplicarTema(raiz.getAttribute('data-tema') === 'claro' ? 'claro' : 'oscuro');
+if (botonTema) {
+    botonTema.addEventListener('click', () => {
+        aplicarTema(raiz.getAttribute('data-tema') === 'claro' ? 'oscuro' : 'claro');
+    });
+}

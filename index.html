@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-tema="oscuro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cuerpo y Alma | Corporación para el desarrollo artístico</title>
+    <script>
+        try {
+            var temaGuardado = localStorage.getItem('tema-cya');
+            if (temaGuardado === 'claro' || temaGuardado === 'oscuro') {
+                document.documentElement.setAttribute('data-tema', temaGuardado);
+            }
+        } catch (error) {}
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/estilos.css?v=tema">
 </head>
 <body>
     <header class="menu">
         <a class="logo" href="#inicio">
             <img class="logo-img" src="img/cuerpo-y-alma.png" alt="Cuerpo y Alma, corporación para el desarrollo artístico">
         </a>
-        <button class="btn-menu" type="button" aria-label="Abrir menú">Menú</button>
         <nav class="menu-navegacion">
             <ul>
                 <li><a class="activa" href="#inicio">Inicio</a></li>
@@ -26,11 +33,23 @@
                 <li><a class="nav-cta" href="#contacto">Contacto</a></li>
             </ul>
         </nav>
+        <div class="acciones-menu">
+            <button class="btn-tema" type="button" aria-label="Cambiar a tema claro" title="Tema claro">
+                <svg class="icono-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M12 3v2.2M12 18.8V21M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M3 12h2.2M18.8 12H21M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></svg>
+                <svg class="icono-luna" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M16.5 13.2A7 7 0 0 1 10.2 4.8 7.2 7.2 0 1 0 19 14.6a7 7 0 0 1-2.5-1.4z"/></svg>
+            </button>
+            <button class="btn-menu" type="button" aria-label="Abrir menú">Menú</button>
+        </div>
     </header>
 
     <section class="portada" id="inicio">
-        <div class="portada-visual">
-            <img src="img/portada-corporacion.jpg?v=taller" alt="Taller de música y danza de Corporación Cuerpo y Alma: encuentro intergeneracional en el estudio">
+        <div class="textura-ig" aria-hidden="true">
+            <img src="img/festival.jpg" alt="">
+            <img src="img/vanguardia-2.jpg" alt="">
+            <img src="img/compania.jpg" alt="">
+            <img src="img/obra-romeo.jpg" alt="">
+            <img src="img/vanguardia-3.jpg" alt="">
+            <img src="img/vanguardia-1.jpg" alt="">
         </div>
         <div class="portada-texto">
             <p class="hero-etiqueta">Corporación para el desarrollo artístico</p>
@@ -38,12 +57,15 @@
             <p>Formamos, creamos y acompañamos procesos artísticos. Ardila Dance Company es uno de los programas de la corporación: la danza como parte de un proyecto más amplio.</p>
             <a class="enlace-flecha" href="#corporacion">Conoce la corporación <span>→</span></a>
         </div>
-        <nav class="paginacion-hero" aria-label="Recorrido">
-            <a class="activa" href="#inicio">01</a>
-            <a href="#corporacion">02</a>
-            <a href="#programas">03</a>
-            <a href="ardila/index.html">04</a>
-        </nav>
+        <div class="portada-visual">
+            <img src="img/portada-corporacion.jpg" alt="Actividades artísticas de Corporación Cuerpo y Alma: pintura, música, cerámica y encuentro comunitario">
+            <nav class="paginacion-hero" aria-label="Recorrido">
+                <a class="activa" href="#inicio">01</a>
+                <a href="#corporacion">02</a>
+                <a href="#programas">03</a>
+                <a href="ardila/index.html">04</a>
+            </nav>
+        </div>
     </section>
 
     <section class="seccion escena-casa" id="corporacion">
