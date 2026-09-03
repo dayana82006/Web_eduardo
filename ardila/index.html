@@ -11,11 +11,22 @@
                 document.documentElement.setAttribute('data-tema', temaGuardado);
             }
         } catch (error) {}
+        function cambiarTema() {
+            var html = document.documentElement;
+            var siguiente = html.getAttribute('data-tema') === 'claro' ? 'oscuro' : 'claro';
+            html.setAttribute('data-tema', siguiente);
+            try { localStorage.setItem('tema-cya', siguiente); } catch (error) {}
+            var boton = document.querySelector('.btn-tema');
+            if (!boton) return;
+            var aClaro = siguiente === 'oscuro';
+            boton.setAttribute('aria-label', aClaro ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
+            boton.title = aClaro ? 'Tema claro' : 'Tema oscuro';
+        }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/estilos.css?v=tema">
+    <link rel="stylesheet" href="../css/estilos.css?v=tema2">
 </head>
 <body>
     <header class="menu">
@@ -34,7 +45,7 @@
             </ul>
         </nav>
         <div class="acciones-menu">
-            <button class="btn-tema" type="button" aria-label="Cambiar a tema claro" title="Tema claro">
+            <button class="btn-tema" type="button" onclick="cambiarTema()" aria-label="Cambiar a tema claro" title="Tema claro">
                 <svg class="icono-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M12 3v2.2M12 18.8V21M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M3 12h2.2M18.8 12H21M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></svg>
                 <svg class="icono-luna" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M16.5 13.2A7 7 0 0 1 10.2 4.8 7.2 7.2 0 1 0 19 14.6a7 7 0 0 1-2.5-1.4z"/></svg>
             </button>
@@ -265,6 +276,6 @@
             <p class="aviso-envio" id="aviso-novedades" style="flex-basis:100%;">Te avisaremos de actividades y convocatorias.</p>
         </form>
     </footer>
-    <script src="../js/sitio.js"></script>
+    <script src="../js/sitio.js?v=tema2"></script>
 </body>
 </html>
