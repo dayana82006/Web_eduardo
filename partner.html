@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="oscuro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner | Cuerpo y Alma</title>
+    <script>
+        try {
+            var temaGuardado = localStorage.getItem('tema-cya');
+            if (temaGuardado === 'claro' || temaGuardado === 'oscuro') {
+                document.documentElement.setAttribute('data-tema', temaGuardado);
+            }
+        } catch (error) {}
+        function cambiarTema() {
+            var html = document.documentElement;
+            var siguiente = html.getAttribute('data-tema') === 'claro' ? 'oscuro' : 'claro';
+            html.setAttribute('data-tema', siguiente);
+            try { localStorage.setItem('tema-cya', siguiente); } catch (error) {}
+            var boton = document.querySelector('.btn-tema');
+            if (!boton) return;
+            var aClaro = siguiente === 'oscuro';
+            boton.setAttribute('aria-label', aClaro ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
+            boton.title = aClaro ? 'Tema claro' : 'Tema oscuro';
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css?v=din4">
+</head>
+<body class="pagina">
+    <header class="menu">
+        <a class="logo" href="index.html">
+            <img class="logo-img" src="img/cuerpo-y-alma.png" alt="Cuerpo y Alma, corporación para el desarrollo artístico">
+        </a>
+        <nav class="menu-navegacion">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="producciones.html">Producciones</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
+                <li><a href="ardila/index.html">Ardila Dance</a></li>
+                <li><a class="activa" href="partner.html">Partner</a></li>
+                <li><a class="nav-cta" href="contacto.html">Contáctanos</a></li>
+            </ul>
+        </nav>
+        <div class="acciones-menu">
+            <button class="btn-tema" type="button" onclick="cambiarTema()" aria-label="Cambiar a tema claro" title="Tema claro">
+                <svg class="icono-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M12 3v2.2M12 18.8V21M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M3 12h2.2M18.8 12H21M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></svg>
+                <svg class="icono-luna" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M16.5 13.2A7 7 0 0 1 10.2 4.8 7.2 7.2 0 1 0 19 14.6a7 7 0 0 1-2.5-1.4z"/></svg>
+            </button>
+            <button class="btn-menu" type="button" aria-label="Abrir menú">Menú</button>
+        </div>
+    </header>
+
+    <section class="llamado-apoyo" id="apoyenos">
+        <div class="llamado-apoyo-foto" aria-hidden="true">
+            <img src="img/hero.jpg" alt="">
+        </div>
+        <div class="llamado-apoyo-texto">
+            <h2>Apóyenos</h2>
+            <p>Todas nuestras actividades requieren tu apoyo.</p>
+            <p>Hay muchas formas de ayudarnos.</p>
+            <button class="boton boton-principal" type="button" data-abrir-modal="modal-apoyo">Ver más</button>
+        </div>
+    </section>
+
+    <dialog class="modal-apoyo" id="modal-apoyo" aria-labelledby="titulo-modal-apoyo">
+        <div class="modal-apoyo-cabeza">
+            <h2 id="titulo-modal-apoyo">Cómo apoyar</h2>
+            <button class="cerrar-modal" type="button" aria-label="Cerrar">&times;</button>
+        </div>
+        <p class="intro-seccion">Tu aporte sostiene a la Corporación Cuerpo y Alma: formación, escena, comunidad y programas como Ardila Dance Company. Sin montos fijos.</p>
+        <div class="apoyo-grid">
+            <article class="panel-apoyo">
+                <p class="subtitulos">Donaciones</p>
+                <h3>Dona</h3>
+                <p>Déjanos tus datos y te contactamos para coordinar el aporte.</p>
+                <form id="form-donacion" class="form-compacto">
+                    <label for="nombre-donante">Nombre</label>
+                    <input id="nombre-donante" name="nombre" type="text" required placeholder="Tu nombre">
+                    <label for="correo-donante">Correo</label>
+                    <input id="correo-donante" name="correo" type="email" required placeholder="tucorreo@email.com">
+                    <label for="mensaje-donante">Cómo quieres apoyar</label>
+                    <textarea id="mensaje-donante" name="mensaje" placeholder="Donación, especie o acompañamiento a un programa"></textarea>
+                    <div class="datos-donacion">
+                        <strong>Transferencia</strong><br>
+                        Corporación Cuerpo y Alma<br>
+                        Los datos de pago se confirman al recibir tu solicitud
+                    </div>
+                    <button class="boton boton-principal" type="submit">Quiero donar</button>
+                    <p class="aviso-envio" id="aviso-donacion">Gracias. Te escribiremos para coordinar el aporte.</p>
+                </form>
+            </article>
+            <article class="panel-apoyo">
+                <p class="subtitulos">Aliados</p>
+                <h3>Acompañar la casa</h3>
+                <p>Empresas y personas que quieren sostener un programa o una temporada, a convenir.</p>
+                <div class="planes">
+                    <div class="plan"><strong>Amigo</strong><span>Acompañamiento a la casa y visibilidad en nuestras actividades.</span></div>
+                    <div class="plan"><strong>Aliado</strong><span>Presencia en programas, formación y encuentros de la corporación.</span></div>
+                    <div class="plan"><strong>Productor</strong><span>Coproducción de un proyecto o temporada, a convenir.</span></div>
+                </div>
+                <form id="form-patrocinio" class="form-compacto">
+                    <label for="empresa">Empresa u organización</label>
+                    <input id="empresa" name="empresa" type="text" required placeholder="Nombre de la empresa">
+                    <label for="plan">Plan de interés</label>
+                    <select id="plan" name="plan" required>
+                        <option value="amigo">Amigo</option>
+                        <option value="aliado">Aliado</option>
+                        <option value="productor">Productor</option>
+                    </select>
+                    <label for="correo-patrocinio">Correo</label>
+                    <input id="correo-patrocinio" name="correo" type="email" required placeholder="contacto@empresa.com">
+                    <label for="mensaje-patrocinio">Mensaje</label>
+                    <textarea id="mensaje-patrocinio" name="mensaje" placeholder="Cómo te gustaría acompañar a Cuerpo y Alma"></textarea>
+                    <button class="boton boton-principal" type="submit">Quiero acompañar</button>
+                    <p class="aviso-envio" id="aviso-patrocinio">Recibimos tu interés. El equipo te contactará.</p>
+                </form>
+            </article>
+        </div>
+    </dialog>
+
+    <a class="btn-flotante" href="#apoyenos" data-abrir-modal="modal-apoyo">Apóyenos</a>
+    <footer class="footer-principal">
+        <img class="logo-img" src="img/cuerpo-y-alma.png" alt="Cuerpo y Alma, corporación para el desarrollo artístico">
+        <p>&copy; 2026 Corporación Cuerpo y Alma. Todos los derechos reservados.</p>
+        <a class="enlace-ig" href="https://www.instagram.com/corporacioncuerpoyalma" target="_blank" rel="noopener noreferrer">Ver más en IG</a>
+    </footer>
+    <script src="js/sitio.js?v=din4"></script>
+</body>
+</html>

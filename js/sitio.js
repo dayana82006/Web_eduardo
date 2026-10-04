@@ -42,28 +42,46 @@ avisar(document.getElementById('form-donacion'), document.getElementById('aviso-
 avisar(document.getElementById('form-patrocinio'), document.getElementById('aviso-patrocinio'));
 avisar(document.getElementById('form-novedades'), document.getElementById('aviso-novedades'));
 
-const secciones = document.querySelectorAll('section[id], .portada[id]');
-const enlacesPagina = document.querySelectorAll('.menu-navegacion a[href^="#"]');
-if (secciones.length && enlacesPagina.length && 'IntersectionObserver' in window) {
-    const observador = new IntersectionObserver((entradas) => {
-        entradas.forEach((entrada) => {
-            if (!entrada.isIntersecting) return;
-            const destino = '#' + entrada.target.id;
-            enlacesPagina.forEach((enlace) => {
-                enlace.classList.toggle('activa', enlace.getAttribute('href') === destino);
-            });
+const gatillosObra = document.querySelectorAll('[data-obra]');
+const obraPrincipal = document.getElementById('obra-principal');
+const obraTitulo = document.getElementById('obra-titulo');
+if (gatillosObra.length && obraPrincipal) {
+    function mostrarObra(src, titulo) {
+        gatillosObra.forEach((item) => {
+            const activa = item.dataset.obra === src;
+            item.classList.toggle('activa', activa);
+            if (item.hasAttribute('aria-pressed')) {
+                item.setAttribute('aria-pressed', activa ? 'true' : 'false');
+            }
         });
-    }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
-    secciones.forEach((seccion) => observador.observe(seccion));
-}
-
-const fotoTerritorio = document.querySelector('.foto-territorio img');
-if (fotoTerritorio) {
-    window.addEventListener('scroll', () => {
-        const caja = fotoTerritorio.getBoundingClientRect();
-        if (caja.bottom < 0 || caja.top > window.innerHeight) return;
-        fotoTerritorio.style.transform = 'scale(1.06) translateY(' + (caja.top * -0.06) + 'px)';
-    }, { passive: true });
+        obraPrincipal.classList.remove('visible');
+        window.setTimeout(() => {
+            obraPrincipal.src = src;
+            obraPrincipal.classList.add('visible');
+        }, 70);
+        if (obraTitulo) obraTitulo.textContent = titulo || '';
+    }
+    gatillosObra.forEach((boton) => {
+        const precarga = new Image();
+        precarga.src = boton.dataset.obra;
+        boton.addEventListener('click', () => {
+            mostrarObra(boton.dataset.obra, boton.dataset.titulo);
+            if (!boton.classList.contains('tarjeta-inicio')) {
+                const portada = document.getElementById('inicio');
+                if (portada) portada.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+} else {
+    const obras = document.querySelectorAll('.fondo-obras img');
+    if (obras.length > 1) {
+        let indice = 0;
+        setInterval(() => {
+            obras[indice].classList.remove('visible');
+            indice = (indice + 1) % obras.length;
+            obras[indice].classList.add('visible');
+        }, 5200);
+    }
 }
 
 document.querySelectorAll('[data-abrir-modal]').forEach((gatillo) => {
@@ -88,3 +106,81 @@ document.querySelectorAll('dialog.modal-apoyo').forEach((modal) => {
         if (fuera) modal.close();
     });
 });
+
+(function dinamismo() {
+    const movimientoFino = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const reducir = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (movimientoFino && !reducir) {
+        const punto = document.createElement('div');
+        const anillo = document.createElement('div');
+        punto.className = 'cursor-punto';
+        anillo.className = 'cursor-anillo';
+        document.body.append(punto, anillo);
+        document.body.classList.add('con-cursor');
+
+        let x = window.innerWidth * 0.58;
+        let y = window.innerHeight * 0.42;
+        let ax = x;
+        let ay = y;
+        window.addEventListener('mousemove', (evento) => {
+            x = evento.clientX;
+            y = evento.clientY;
+        }, { passive: true });
+        function seguir() {
+            ax += (x - ax) * 0.55;
+            ay += (y - ay) * 0.55;
+            punto.style.transform = 'translate(' + x + 'px,' + y + 'px) translate(-50%,-50%)';
+            anillo.style.transform = 'translate(' + ax + 'px,' + ay + 'px) translate(-50%,-50%)';
+            requestAnimationFrame(seguir);
+        }
+        seguir();
+        document.querySelectorAll('a, button, .expande, .panel-expand, [data-obra]').forEach((el) => {
+            el.addEventListener('mouseenter', () => anillo.classList.add('amplio'));
+            el.addEventListener('mouseleave', () => anillo.classList.remove('amplio'));
+        });
+    }
+
+    const portada = document.querySelector('body.inicio .portada-foto');
+    if (portada && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        let foco = portada.querySelector('.linterna-foco');
+        if (!foco) {
+            const luz = document.createElement('div');
+            luz.className = 'linterna';
+            foco = document.createElement('div');
+            foco.className = 'linterna-foco';
+            luz.appendChild(foco);
+            portada.appendChild(luz);
+        }
+        function moverLinterna(evento) {
+            const r = portada.getBoundingClientRect();
+            foco.style.left = (evento.clientX - r.left) + 'px';
+            foco.style.top = (evento.clientY - r.top) + 'px';
+        }
+        portada.addEventListener('mousemove', moverLinterna, { passive: true });
+        window.addEventListener('mousemove', moverLinterna, { passive: true });
+    }
+
+    if (movimientoFino && !reducir) {
+        document.querySelectorAll('.expande, .panel-expand, .ed-pieza, .tarjeta-inicio').forEach((caja) => {
+            const img = caja.querySelector('img');
+            if (!img) return;
+            caja.addEventListener('mousemove', (evento) => {
+                const r = caja.getBoundingClientRect();
+                const px = (evento.clientX - r.left) / r.width - 0.5;
+                const py = (evento.clientY - r.top) / r.height - 0.5;
+                img.style.transform = 'scale(1.16) translate(' + (px * -20) + 'px,' + (py * -20) + 'px)';
+            });
+            caja.addEventListener('mouseleave', () => {
+                img.style.transform = '';
+            });
+        });
+    }
+
+    const observador = new IntersectionObserver((entradas) => {
+        entradas.forEach((entrada) => {
+            if (entrada.isIntersecting) entrada.target.classList.add('visto');
+        });
+    }, { threshold: 0.14 });
+    document.querySelectorAll('.revelar').forEach((el) => observador.observe(el));
+})();

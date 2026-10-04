@@ -25,23 +25,23 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/estilos.css?v=modal-tema">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css?v=din6">
 </head>
-<body>
+<body class="inicio">
     <header class="menu">
-        <a class="logo" href="#inicio">
+        <a class="logo" href="index.html">
             <img class="logo-img" src="img/cuerpo-y-alma.png" alt="Cuerpo y Alma, corporación para el desarrollo artístico">
         </a>
         <nav class="menu-navegacion">
             <ul>
-                <li><a class="activa" href="#inicio">Inicio</a></li>
-                <li><a href="#corporacion">La corporación</a></li>
-                <li><a href="#equipo">Equipo</a></li>
-                <li><a href="#programas">Programas</a></li>
+                <li><a class="activa" href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="producciones.html">Producciones</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
                 <li><a href="ardila/index.html">Ardila Dance</a></li>
-                <li><a href="#apoyenos">Apóyenos</a></li>
-                <li><a class="nav-cta" href="#contacto">Contacto</a></li>
+                <li><a href="partner.html">Partner</a></li>
+                <li><a class="nav-cta" href="contacto.html">Contáctanos</a></li>
             </ul>
         </nav>
         <div class="acciones-menu">
@@ -53,271 +53,83 @@
         </div>
     </header>
 
-    <section class="portada" id="inicio">
-        <div class="textura-ig" aria-hidden="true">
-            <img src="img/festival.jpg" alt="">
-            <img src="img/vanguardia-2.jpg" alt="">
-            <img src="img/compania.jpg" alt="">
-            <img src="img/obra-romeo.jpg" alt="">
-            <img src="img/vanguardia-3.jpg" alt="">
-            <img src="img/vanguardia-1.jpg" alt="">
+    <section class="portada portada-foto" id="inicio">
+        <div class="fondo-obras" aria-hidden="true">
+            <img class="visible" id="obra-principal" src="img/hero.jpg" alt="">
         </div>
-        <div class="portada-texto">
-            <p class="hero-etiqueta">Corporación para el desarrollo artístico</p>
-            <h1>Cuerpo y Alma.<em>Arte que sostiene la vida.</em></h1>
-            <p>Formamos, creamos y acompañamos procesos artísticos. Ardila Dance Company es uno de los programas de la corporación: la danza como parte de un proyecto más amplio.</p>
-            <a class="enlace-flecha" href="#corporacion">Conoce la corporación <span>→</span></a>
+        <div class="grano" aria-hidden="true"></div>
+        <h1 class="marca-pantalla">Cuerpo y Alma</h1>
+        <div class="portada-intro">
+            <p class="kicker">Quiénes somos</p>
+            <p>Corporación para el desarrollo artístico. Formamos, creamos y sostenemos procesos en territorio.</p>
+            <a class="boton-linea" href="nosotros.html">Conocer la casa</a>
         </div>
-        <div class="portada-visual">
-            <img src="img/portada-corporacion.jpg" alt="Actividades artísticas de Corporación Cuerpo y Alma: pintura, música, cerámica y encuentro comunitario">
-            <nav class="paginacion-hero" aria-label="Recorrido">
-                <a class="activa" href="#inicio">01</a>
-                <a href="#corporacion">02</a>
-                <a href="#programas">03</a>
-                <a href="ardila/index.html">04</a>
-            </nav>
-        </div>
-    </section>
-
-    <section class="seccion escena-casa" id="corporacion">
-        <div class="foto-territorio">
-            <img src="img/comunidad.jpg" alt="Niños y equipo de Cuerpo y Alma en un encuentro comunitario">
-            <div class="velo-territorio" aria-hidden="true"></div>
-            <div class="polvo" aria-hidden="true">
-                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-            </div>
-            <div class="relato-territorio">
-                <p class="subtitulos">Quiénes somos</p>
-                <h2>Una corporación para el <span class="oro">desarrollo artístico</span>.</h2>
-                <p>Cuerpo y Alma impulsa la <span class="oro">creación</span>, la <span class="oro">formación</span> y la circulación de las artes. Trabajamos con el cuerpo, la escena y la comunidad: no somos solo una compañía de danza, somos la casa que la sostiene.</p>
-                <p>Ardila Dance Company es el programa de danza contemporánea de la casa, no toda la corporación.</p>
-                <p class="pie-foto">La corporación en territorio: formación y encuentro con la comunidad.</p>
-            </div>
-        </div>
-
-        <div class="separador-alma" aria-hidden="true">
-            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-                <path class="onda-seda" d="M0,72 C180,20 320,110 520,64 C720,18 880,108 1100,58 C1240,28 1360,80 1440,48 L1440,120 L0,120 Z"/>
-                <path class="onda-luz" d="M0,80 C240,30 400,100 640,55 C900,4 1080,96 1440,40"/>
-            </svg>
-        </div>
-
-        <div class="escena-identidad">
-            <div class="envolvente">
-                <p class="subtitulos">Identidad</p>
-                <h2>Misión, visión y quehacer</h2>
-                <div class="layout-mision">
-                    <div class="cartas-eje">
-                        <article class="carta-eje cristal">
-                            <header>
-                                <span class="num">01</span>
-                                <svg class="ico-eje" viewBox="0 0 32 32" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M6 22c4-8 10-12 16-12 2 4-1 8-5 9"/><circle cx="22" cy="10" r="3.2" fill="none" stroke="currentColor" stroke-width="1.5"/><path fill="none" stroke="currentColor" stroke-width="1.5" d="M8 24h14M11 24l2 4h6l2-4"/></svg>
-                            </header>
-                            <h3>Misión</h3>
-                            <p>Promover el desarrollo artístico como derecho y como oficio: crear, formar e incluir, para que más personas puedan hacer y habitar las artes con rigor y sentido social.</p>
-                        </article>
-                        <article class="carta-eje cristal">
-                            <header>
-                                <span class="num">02</span>
-                                <svg class="ico-eje" viewBox="0 0 32 32" aria-hidden="true"><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><path fill="none" stroke="currentColor" stroke-width="1.5" d="m16 16 8 8M22 26h6v-6"/><path fill="none" stroke="currentColor" stroke-width="1.5" d="M7 24h5M9 26h5"/></svg>
-                            </header>
-                            <h3>Visión</h3>
-                            <p>Ser un referente de gestión cultural y de formación artística, reconocidos por sostener compañías, escuelas y proyectos que conectan el oficio con el territorio.</p>
-                        </article>
-                    </div>
-                    <div class="bloque-hacemos">
-                        <h3>Lo que hacemos</h3>
-                        <p>Creación, formación, circulación y comunidad. Ardila Dance Company es el programa de danza contemporánea de la casa, no toda la corporación.</p>
-                        <div class="mosaico-oficio">
-                            <figure class="mosaico-foto mosaico-danza">
-                                <img src="img/hero.jpg" alt="Danza contemporánea">
-                            </figure>
-                            <figure class="mosaico-foto mosaico-taller">
-                                <img src="img/vanguardia-2.jpg" alt="Formación artística">
-                            </figure>
-                            <figure class="mosaico-foto mosaico-encuentro">
-                                <img src="img/festival.jpg" alt="Encuentro comunitario">
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-                <div class="rejilla-hacemos">
-                    <article>
-                        <svg class="ico-eje" viewBox="0 0 32 32" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M4 8h6v16H4zM22 8h6v16h-6zM10 24h12"/><path fill="none" stroke="currentColor" stroke-width="1.5" d="M16 10v6M16 10l3 4h-6z"/></svg>
-                        <h4>Creación</h4>
-                        <p>Procesos escénicos e investigación con el cuerpo y el relato al centro.</p>
-                    </article>
-                    <article>
-                        <svg class="ico-eje" viewBox="0 0 32 32" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M6 20h20v6H6zM8 20V12l8-5 8 5v8"/><path fill="none" stroke="currentColor" stroke-width="1.5" d="M12 26v-4h8v4"/></svg>
-                        <h4>Formación</h4>
-                        <p>Talleres y acompañamiento para quienes crecen en las artes.</p>
-                    </article>
-                    <article>
-                        <svg class="ico-eje" viewBox="0 0 32 32" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M8 18c-3 0-4 3-4 5v3h8v-3c0-2-1-5-4-5zM24 18c-3 0-4 3-4 5v3h8v-3c0-2-1-5-4-5zM16 14c-3 0-4 3-4 5v3h8v-3c0-2-1-5-4-5z"/></svg>
-                        <h4>Comunidad</h4>
-                        <p>El arte fuera de la sala: barrios, escuelas y otros públicos.</p>
-                    </article>
-                    <article>
-                        <svg class="ico-eje" viewBox="0 0 32 32" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M10 26h12M16 26V12"/><circle cx="16" cy="9" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path fill="none" stroke="currentColor" stroke-width="1.5" d="M16 6V4M20 8l2-2M12 8 10 6"/></svg>
-                        <h4>Programas</h4>
-                        <p>Ardila Dance Company y otras líneas bajo el mismo techo.</p>
-                    </article>
-                </div>
+        <div class="portada-cuerpo">
+            <p class="obra-activa" id="obra-titulo">Ardila</p>
+            <div class="tarjetas-inicio" role="list">
+                <button type="button" class="tarjeta-inicio activa" data-obra="img/hero.jpg" data-titulo="Ardila" aria-pressed="true">
+                    <img src="img/hero.jpg" alt="Obra Ardila">
+                </button>
+                <button type="button" class="tarjeta-inicio" data-obra="img/vanguardia-1.jpg" data-titulo="Vanguardia" aria-pressed="false">
+                    <img src="img/vanguardia-1.jpg" alt="Obra Vanguardia">
+                </button>
+                <button type="button" class="tarjeta-inicio" data-obra="img/vanguardia-2.jpg" data-titulo="Cuerpo" aria-pressed="false">
+                    <img src="img/vanguardia-2.jpg" alt="Obra Cuerpo">
+                </button>
+                <button type="button" class="tarjeta-inicio" data-obra="img/compania.jpg" data-titulo="Compañía" aria-pressed="false">
+                    <img src="img/compania.jpg" alt="Obra Compañía">
+                </button>
             </div>
         </div>
     </section>
 
-    <section class="seccion seccion-clara escena-equipo" id="equipo">
-        <div class="envolvente">
-            <p class="subtitulos">Quiénes hacen la casa</p>
-            <h2>Personal y equipo</h2>
-            <p class="intro-seccion">Equipo multidisciplinario de la Corporación Cuerpo y Alma: dirección, formación, creación y acompañamiento en territorio.</p>
-            <div class="equipo">
-                <article class="miembro"><img src="img/compania.jpg" alt="Dirección"><h3>Dirección</h3><p>Liderazgo artístico y de la casa</p></article>
-                <article class="miembro"><img src="img/vanguardia-2.jpg" alt="Formación"><h3>Formación</h3><p>Talleres y procesos pedagógicos</p></article>
-                <article class="miembro"><img src="img/hero.jpg" alt="Creación"><h3>Creación</h3><p>Escena, cuerpo y relato</p></article>
-                <article class="miembro"><img src="img/comunidad.jpg" alt="Comunidad"><h3>Comunidad</h3><p>Territorio y encuentro</p></article>
-            </div>
+    <div class="cinta" aria-hidden="true">
+        <div class="cinta-pista">
+            <span>Creación</span>
+            <span>Formación</span>
+            <span>Circulación</span>
+            <span>Comunidad</span>
+            <span>Ardila Dance</span>
+            <span>Territorio</span>
+            <span>Creación</span>
+            <span>Formación</span>
+            <span>Circulación</span>
+            <span>Comunidad</span>
+            <span>Ardila Dance</span>
+            <span>Territorio</span>
         </div>
-    </section>
+    </div>
 
-    <section class="seccion escena-cierre" id="programas">
-        <div class="envolvente">
-            <p class="subtitulos">Líneas de trabajo</p>
-            <h2>Programas</h2>
-            <p class="intro-seccion">Así se organiza la corporación: programas que pueden crecer por su cuenta, siempre bajo el mismo techo.</p>
-            <article class="carta-programa protagonista">
-                <figure>
-                    <img src="img/hero.jpg" alt="Ardila Dance Company">
-                </figure>
-                <div class="contenido">
-                    <span class="chip-programa">Programa de danza</span>
-                    <h3>Ardila Dance Company</h3>
-                    <p>Compañía de danza contemporánea de la corporación: obras, festival, talleres y trabajo en comunidad. Es una parte de Cuerpo y Alma, no toda la corporación.</p>
-                    <a class="enlace-oro" href="ardila/index.html">Entrar al programa →</a>
-                </div>
-            </article>
-            <div class="linea-programas">
-                <article class="carta-programa menor">
-                    <figure>
-                        <img src="img/vanguardia-2.jpg" alt="Formación artística">
-                    </figure>
-                    <div class="contenido">
-                        <h3>Formación</h3>
-                        <p>Talleres, procesos pedagógicos y acompañamiento para artistas en formación.</p>
-                        <a class="enlace-oro" href="#contacto">Preguntar →</a>
-                    </div>
-                </article>
-                <article class="carta-programa menor">
-                    <figure>
-                        <img src="img/festival.jpg" alt="Escena y comunidad">
-                    </figure>
-                    <div class="contenido">
-                        <h3>Escena y comunidad</h3>
-                        <p>Encuentros, circulación y actividades que sacan las artes de la sala hacia otros públicos.</p>
-                        <a class="enlace-oro" href="#contacto">Preguntar →</a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section class="llamado-apoyo" id="apoyenos">
-        <div class="llamado-apoyo-foto" aria-hidden="true">
-            <img src="img/hero.jpg" alt="">
-        </div>
-        <div class="llamado-apoyo-texto">
-            <h2>Apóyenos</h2>
-            <p>Todas nuestras actividades requieren tu apoyo.</p>
-            <p>Hay muchas formas de ayudarnos.</p>
-            <button class="boton boton-principal" type="button" data-abrir-modal="modal-apoyo">Ver más</button>
-        </div>
-    </section>
-
-    <dialog class="modal-apoyo" id="modal-apoyo" aria-labelledby="titulo-modal-apoyo">
-        <div class="modal-apoyo-cabeza">
-            <h2 id="titulo-modal-apoyo">Cómo apoyar</h2>
-            <button class="cerrar-modal" type="button" aria-label="Cerrar">&times;</button>
-        </div>
-        <p class="intro-seccion">Tu aporte sostiene a la Corporación Cuerpo y Alma: formación, escena, comunidad y programas como Ardila Dance Company. Sin montos fijos.</p>
-        <div class="apoyo-grid">
-            <article class="panel-apoyo">
-                <p class="subtitulos">Donaciones</p>
-                <h3>Dona</h3>
-                <p>Déjanos tus datos y te contactamos para coordinar el aporte.</p>
-                <form id="form-donacion" class="form-compacto">
-                    <label for="nombre-donante">Nombre</label>
-                    <input id="nombre-donante" name="nombre" type="text" required placeholder="Tu nombre">
-                    <label for="correo-donante">Correo</label>
-                    <input id="correo-donante" name="correo" type="email" required placeholder="tucorreo@email.com">
-                    <label for="mensaje-donante">Cómo quieres apoyar</label>
-                    <textarea id="mensaje-donante" name="mensaje" placeholder="Donación, especie o acompañamiento a un programa"></textarea>
-                    <div class="datos-donacion">
-                        <strong>Transferencia</strong><br>
-                        Corporación Cuerpo y Alma<br>
-                        Los datos de pago se confirman al recibir tu solicitud
-                    </div>
-                    <button class="boton boton-principal" type="submit">Quiero donar</button>
-                    <p class="aviso-envio" id="aviso-donacion">Gracias. Te escribiremos para coordinar el aporte.</p>
-                </form>
-            </article>
-            <article class="panel-apoyo">
-                <p class="subtitulos">Aliados</p>
-                <h3>Acompañar la casa</h3>
-                <p>Empresas y personas que quieren sostener un programa o una temporada, a convenir.</p>
-                <div class="planes">
-                    <div class="plan"><strong>Amigo</strong><span>Acompañamiento a la casa y visibilidad en nuestras actividades.</span></div>
-                    <div class="plan"><strong>Aliado</strong><span>Presencia en programas, formación y encuentros de la corporación.</span></div>
-                    <div class="plan"><strong>Productor</strong><span>Coproducción de un proyecto o temporada, a convenir.</span></div>
-                </div>
-                <form id="form-patrocinio" class="form-compacto">
-                    <label for="empresa">Empresa u organización</label>
-                    <input id="empresa" name="empresa" type="text" required placeholder="Nombre de la empresa">
-                    <label for="plan">Plan de interés</label>
-                    <select id="plan" name="plan" required>
-                        <option value="amigo">Amigo</option>
-                        <option value="aliado">Aliado</option>
-                        <option value="productor">Productor</option>
-                    </select>
-                    <label for="correo-patrocinio">Correo</label>
-                    <input id="correo-patrocinio" name="correo" type="email" required placeholder="contacto@empresa.com">
-                    <label for="mensaje-patrocinio">Mensaje</label>
-                    <textarea id="mensaje-patrocinio" name="mensaje" placeholder="Cómo te gustaría acompañar a Cuerpo y Alma"></textarea>
-                    <button class="boton boton-principal" type="submit">Quiero acompañar</button>
-                    <p class="aviso-envio" id="aviso-patrocinio">Recibimos tu interés. El equipo te contactará.</p>
-                </form>
+    <section class="editorial">
+        <button type="button" class="ed-pieza ed-grande expande" data-obra="img/vanguardia-1.jpg" data-titulo="Vanguardia">
+            <img src="img/vanguardia-1.jpg" alt="Obra Vanguardia">
+            <span>01 / Vanguardia</span>
+        </button>
+        <div class="ed-col">
+            <button type="button" class="ed-pieza expande" data-obra="img/vanguardia-3.jpg" data-titulo="Escena">
+                <img src="img/vanguardia-3.jpg" alt="Obra Escena">
+                <span>02 / Escena</span>
+            </button>
+            <article class="ed-nota">
+                <p class="kicker">Programa</p>
+                <h2>Ardila Dance Company</h2>
+                <p>Compañía de danza contemporánea de la corporación: una línea de trabajo, no toda la casa.</p>
+                <a href="ardila/index.html">Entrar al programa →</a>
             </article>
         </div>
-    </dialog>
-
-    <section class="seccion escena-cierre" id="contacto">
-        <div class="envolvente">
-            <p class="subtitulos">Estamos cerca</p>
-            <h2>Contacto</h2>
-            <div class="contacto-grid">
-                <form id="form-contacto">
-                    <label for="nombre">Nombre</label>
-                    <input id="nombre" name="nombre" type="text" required placeholder="Tu nombre">
-                    <label for="correo">Correo</label>
-                    <input id="correo" name="correo" type="email" required placeholder="tucorreo@email.com">
-                    <label for="mensaje">Mensaje</label>
-                    <textarea id="mensaje" name="mensaje" required placeholder="Escríbenos por la corporación, un programa o Ardila Dance"></textarea>
-                    <button class="boton boton-principal" type="submit">Enviar</button>
-                    <p class="aviso-envio" id="aviso-envio">Gracias. Recibimos tu mensaje.</p>
-                </form>
-                <div class="contacto-info">
-                    <p class="subtitulos">Corporación Cuerpo y Alma</p>
-                    <h3>Hablemos</h3>
-                    <p>Para la corporación, la formación o el programa Ardila Dance Company.</p>
-                    <div class="dato"><strong>Lugar</strong>Bucaramanga, Santander, Colombia</div>
-                    <div class="dato"><strong>Redes</strong><a href="https://www.instagram.com/corporacioncuerpoyalma" target="_blank" rel="noopener noreferrer">Instagram</a></div>
-                    <iframe class="mapa" title="Bucaramanga" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-73.16%2C7.10%2C-73.09%2C7.16&amp;layer=mapnik"></iframe>
-                </div>
-            </div>
-        </div>
+        <button type="button" class="ed-pieza ed-baja expande" data-obra="img/compania.jpg" data-titulo="Compañía">
+            <img src="img/compania.jpg" alt="Obra Compañía">
+            <span>03 / Compañía</span>
+        </button>
+        <article class="ed-nota ed-cierre">
+            <p class="kicker">Casa</p>
+            <h2>Más que una compañía</h2>
+            <p>Proyectos de formación, escena y comunidad bajo el mismo techo.</p>
+            <a href="proyectos.html">Ver proyectos →</a>
+        </article>
     </section>
 
-    <a class="btn-flotante" href="#apoyenos" data-abrir-modal="modal-apoyo">Apóyenos</a>
+    <a class="btn-flotante" href="partner.html">Apóyenos</a>
     <footer class="footer-principal">
         <img class="logo-img" src="img/cuerpo-y-alma.png" alt="Cuerpo y Alma, corporación para el desarrollo artístico">
         <p>&copy; 2026 Corporación Cuerpo y Alma. Todos los derechos reservados.</p>
@@ -325,12 +137,7 @@
             <svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16"><path fill="currentColor" d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm10 1.8H7A2.2 2.2 0 0 0 4.8 7v10A2.2 2.2 0 0 0 7 19.2h10a2.2 2.2 0 0 0 2.2-2.2V7A2.2 2.2 0 0 0 17 4.8zM12 8.2A3.8 3.8 0 1 1 8.2 12 3.8 3.8 0 0 1 12 8.2zm0 1.6A2.2 2.2 0 1 0 14.2 12 2.2 2.2 0 0 0 12 9.8zm4.55-3.05a.95.95 0 1 1-.95.95.95.95 0 0 1 .95-.95z"/></svg>
             Ver más en IG
         </a>
-        <form id="form-novedades" class="form-compacto" style="max-width: 360px; margin: 18px auto 0; display:flex; gap:8px; flex-wrap:wrap;">
-            <input type="email" required placeholder="Escribe tu email" aria-label="Correo para novedades" style="flex:1;">
-            <button class="boton boton-principal" type="submit">Unirme</button>
-            <p class="aviso-envio" id="aviso-novedades" style="flex-basis:100%;">Te avisaremos de actividades y convocatorias.</p>
-        </form>
     </footer>
-    <script src="js/sitio.js?v=modal-apoyo"></script>
+    <script src="js/sitio.js?v=din6"></script>
 </body>
 </html>

@@ -26,9 +26,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/estilos.css?v=tema2">
+    <link rel="stylesheet" href="../css/estilos.css?v=din4">
 </head>
-<body>
+<body class="pagina">
     <header class="menu">
         <a class="logo" href="../index.html">
             <img class="logo-img" src="../img/cuerpo-y-alma.png" alt="Cuerpo y Alma, corporación para el desarrollo artístico">
@@ -40,8 +40,8 @@
                 <li><a href="#obras">Obras</a></li>
                 <li><a href="#festival">Festival</a></li>
                 <li><a href="#comunidad">Comunidad</a></li>
-                <li><a href="../index.html#equipo">Equipo</a></li>
-                <li><a class="nav-cta" href="../index.html#contacto">Contacto</a></li>
+                <li><a href="../nosotros.html">Nosotros</a></li>
+                <li><a class="nav-cta" href="../contacto.html">Contacto</a></li>
             </ul>
         </nav>
         <div class="acciones-menu">
@@ -53,20 +53,18 @@
         </div>
     </header>
 
-    <section class="hero" id="ardila">
-        <div class="hero-media" aria-hidden="true"><img src="../img/hero.jpg" alt=""></div>
-        <div class="hero-contenido">
-            <p class="hero-etiqueta">Programa de danza contemporánea</p>
-            <h1>Ardila Dance Company</h1>
-            <p>Movimiento que transforma. Arte que conecta. Una compañía que pertenece a la Corporación Cuerpo y Alma.</p>
-            <div class="acciones">
-                <a class="boton boton-principal" href="#obras">Ver obras</a>
-                <a class="boton boton-secundario" href="#festival">Festival y talleres</a>
-            </div>
+    <section class="portada portada-foto pagina-hero" id="ardila">
+        <div class="fondo-obras" aria-hidden="true"><img class="visible" src="../img/hero.jpg" alt=""></div>
+        <div class="grano" aria-hidden="true"></div>
+        <h1 class="marca-pantalla">Ardila</h1>
+        <div class="portada-intro">
+            <p class="kicker">Programa de danza contemporánea</p>
+            <p>Movimiento que transforma. Una compañía que pertenece a la Corporación Cuerpo y Alma.</p>
+            <a class="boton-linea" href="#obras">Ver obras</a>
         </div>
     </section>
 
-    <section class="seccion seccion-clara" id="compania">
+    <section class="seccion seccion-clara revelar" id="compania">
         <div class="envolvente">
             <p class="subtitulos">El programa</p>
             <h2>La compañía</h2>
@@ -96,35 +94,31 @@
         </div>
     </section>
 
-    <section class="seccion fondo-oscuro" id="obras">
-        <div class="envolvente">
-            <p class="subtitulos">Lo que hacemos</p>
-            <h2>Nuestras obras</h2>
-            <p class="intro-seccion">Tres universos escénicos que cruzan literatura, mito y movimiento.</p>
-            <div class="T-proyectos">
-                <article class="Img-proyecto">
-                    <div class="foto"><img src="../img/vanguardia-3.jpg" alt="Mil y una noches"></div>
-                    <div class="contenido">
-                        <h3>Mil y una noches</h3>
-                        <p>Un viaje de relatos, seducción y resistencia, donde cada escena abre otra historia sobre el escenario.</p>
-                    </div>
-                </article>
-                <article class="Img-proyecto">
-                    <div class="foto"><img src="../img/obra-romeo.jpg" alt="Romeo y Julieta"></div>
-                    <div class="contenido">
-                        <h3>Romeo &amp; Julieta</h3>
-                        <p>La tragedia clásica reescrita en danza: dos cuerpos, dos bandos y un amor que no cabe en el mundo.</p>
-                    </div>
-                </article>
-                <article class="Img-proyecto">
-                    <div class="foto"><img src="../img/vanguardia-1.jpg" alt="100 años de soledad"></div>
-                    <div class="contenido">
-                        <h3>100 años de soledad</h3>
-                        <p>Macondo hecho movimiento: memoria, linaje y realismo mágico que habita el cuerpo de la compañía.</p>
-                    </div>
-                </article>
+    <section class="paneles" id="obras">
+        <article class="panel-expand">
+            <img src="../img/vanguardia-3.jpg" alt="Mil y una noches">
+            <div class="panel-dato">
+                <span>01 / Obra</span>
+                <strong>Mil y una noches</strong>
+                <p>Un viaje de relatos, seducción y resistencia, donde cada escena abre otra historia.</p>
             </div>
-        </div>
+        </article>
+        <article class="panel-expand">
+            <img src="../img/obra-romeo.jpg" alt="Romeo y Julieta">
+            <div class="panel-dato">
+                <span>02 / Obra</span>
+                <strong>Romeo &amp; Julieta</strong>
+                <p>La tragedia clásica reescrita en danza: dos cuerpos, dos bandos y un amor que no cabe en el mundo.</p>
+            </div>
+        </article>
+        <article class="panel-expand">
+            <img src="../img/vanguardia-1.jpg" alt="100 años de soledad">
+            <div class="panel-dato">
+                <span>03 / Obra</span>
+                <strong>100 años</strong>
+                <p>Macondo hecho movimiento: memoria, linaje y realismo mágico en el cuerpo de la compañía.</p>
+            </div>
+        </article>
     </section>
 
     <section class="seccion seccion-clara" id="festival">
@@ -148,7 +142,7 @@
                             <div><span>Ciudad</span> Temporada en teatro y espacios públicos</div>
                             <div><span>Inscripciones</span> Abiertas para público, compañías y estudiantes</div>
                         </div>
-                        <a class="boton boton-principal" href="../index.html#contacto">Inscribirme al festival</a>
+                        <a class="boton boton-principal" href="../contacto.html">Inscribirme al festival</a>
                     </div>
                 </article>
                 <div class="rejilla-festival">
@@ -179,7 +173,7 @@
                                 <li><strong>Lugar:</strong> estudio</li>
                                 <li><strong>Facilitador:</strong> cuerpo docente Ardila Dance</li>
                             </ul>
-                            <a href="../index.html#contacto" class="ver-mas">Inscripción →</a>
+                            <a href="../contacto.html" class="ver-mas">Inscripción →</a>
                         </div>
                     </article>
                     <article class="tarjeta-taller">
@@ -192,7 +186,7 @@
                                 <li><strong>Lugar:</strong> sala negra</li>
                                 <li><strong>Facilitador:</strong> coreógrafos de la compañía</li>
                             </ul>
-                            <a href="../index.html#contacto" class="ver-mas">Inscripción →</a>
+                            <a href="../contacto.html" class="ver-mas">Inscripción →</a>
                         </div>
                     </article>
                     <article class="tarjeta-taller">
@@ -205,7 +199,7 @@
                                 <li><strong>Lugar:</strong> espacios aliados</li>
                                 <li><strong>Facilitador:</strong> equipo de formación social</li>
                             </ul>
-                            <a href="../index.html#contacto" class="ver-mas">Inscripción →</a>
+                            <a href="../contacto.html" class="ver-mas">Inscripción →</a>
                         </div>
                     </article>
                 </div>
@@ -219,12 +213,12 @@
             <h2>La danza más allá del teatro</h2>
             <p class="intro-seccion">Talleres, presentaciones abiertas y procesos de formación que acercan el movimiento a barrios, escuelas y plazas.</p>
             <div class="galeria-comunidad">
-                <figure><img src="../img/comunidad.jpg" alt="Encuentro comunitario"><figcaption>Encuentro con la comunidad</figcaption></figure>
-                <figure><img src="../img/obra-romeo.jpg" alt="Formación técnica"><figcaption>Formación técnica</figcaption></figure>
-                <figure><img src="../img/vanguardia-1.jpg" alt="Ensayo"><figcaption>Ensayo de compañía</figcaption></figure>
-                <figure><img src="../img/compania.jpg" alt="Escena colectiva"><figcaption>Escena colectiva</figcaption></figure>
-                <figure><img src="../img/vanguardia-2.jpg" alt="Nuevos lenguajes"><figcaption>Nuevos lenguajes</figcaption></figure>
-                <figure><img src="../img/festival.jpg" alt="Encuentro"><figcaption>Encuentro abierto</figcaption></figure>
+                <figure class="expande"><img src="../img/comunidad.jpg" alt="Encuentro comunitario"><figcaption>Encuentro con la comunidad</figcaption></figure>
+                <figure class="expande"><img src="../img/obra-romeo.jpg" alt="Formación técnica"><figcaption>Formación técnica</figcaption></figure>
+                <figure class="expande"><img src="../img/vanguardia-1.jpg" alt="Ensayo"><figcaption>Ensayo de compañía</figcaption></figure>
+                <figure class="expande"><img src="../img/compania.jpg" alt="Escena colectiva"><figcaption>Escena colectiva</figcaption></figure>
+                <figure class="expande"><img src="../img/vanguardia-2.jpg" alt="Nuevos lenguajes"><figcaption>Nuevos lenguajes</figcaption></figure>
+                <figure class="expande"><img src="../img/festival.jpg" alt="Encuentro"><figcaption>Encuentro abierto</figcaption></figure>
             </div>
             <p class="subtitulos" style="margin-top:48px;">Vanguardia</p>
             <h2>Danza que transforma vidas</h2>
@@ -262,7 +256,7 @@
         </div>
     </section>
 
-    <a class="btn-flotante" href="../index.html#apoyenos">Apóyenos</a>
+    <a class="btn-flotante" href="../partner.html">Apóyenos</a>
     <footer class="footer-principal">
         <img class="logo-img" src="../img/cuerpo-y-alma.png" alt="Cuerpo y Alma, corporación para el desarrollo artístico">
         <p>&copy; 2026 Corporación Cuerpo y Alma. Todos los derechos reservados.</p>
@@ -276,6 +270,6 @@
             <p class="aviso-envio" id="aviso-novedades" style="flex-basis:100%;">Te avisaremos de actividades y convocatorias.</p>
         </form>
     </footer>
-    <script src="../js/sitio.js?v=tema2"></script>
+    <script src="../js/sitio.js?v=din4"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contáctanos | Cuerpo y Alma</title>
+    <title>Proyectos | Cuerpo y Alma</title>
     <script>
         try {
             var temaGuardado = localStorage.getItem('tema-cya');
@@ -25,7 +25,7 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css?v=din4">
 </head>
 <body class="pagina">
@@ -38,10 +38,10 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
                 <li><a href="producciones.html">Producciones</a></li>
-                <li><a href="proyectos.html">Proyectos</a></li>
+                <li><a class="activa" href="proyectos.html">Proyectos</a></li>
                 <li><a href="ardila/index.html">Ardila Dance</a></li>
                 <li><a href="partner.html">Partner</a></li>
-                <li><a class="nav-cta activa" href="contacto.html">Contáctanos</a></li>
+                <li><a class="nav-cta" href="contacto.html">Contáctanos</a></li>
             </ul>
         </nav>
         <div class="acciones-menu">
@@ -53,31 +53,43 @@
         </div>
     </header>
 
-    <section class="seccion escena-cierre" id="contacto">
-        <div class="envolvente">
-            <p class="subtitulos">Estamos cerca</p>
-            <h2>Contacto</h2>
-            <div class="contacto-grid">
-                <form id="form-contacto">
-                    <label for="nombre">Nombre</label>
-                    <input id="nombre" name="nombre" type="text" required placeholder="Tu nombre">
-                    <label for="correo">Correo</label>
-                    <input id="correo" name="correo" type="email" required placeholder="tucorreo@email.com">
-                    <label for="mensaje">Mensaje</label>
-                    <textarea id="mensaje" name="mensaje" required placeholder="Escríbenos por la corporación, un programa o Ardila Dance"></textarea>
-                    <button class="boton boton-principal" type="submit">Enviar</button>
-                    <p class="aviso-envio" id="aviso-envio">Gracias. Recibimos tu mensaje.</p>
-                </form>
-                <div class="contacto-info">
-                    <p class="subtitulos">Corporación Cuerpo y Alma</p>
-                    <h3>Hablemos</h3>
-                    <p>Para la corporación, la formación o el programa Ardila Dance Company.</p>
-                    <div class="dato"><strong>Lugar</strong>Bucaramanga, Santander, Colombia</div>
-                    <div class="dato"><strong>Redes</strong><a href="https://www.instagram.com/corporacioncuerpoyalma" target="_blank" rel="noopener noreferrer">Instagram</a></div>
-                    <iframe class="mapa" title="Bucaramanga" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-73.16%2C7.10%2C-73.09%2C7.16&amp;layer=mapnik"></iframe>
-                </div>
-            </div>
+    <section class="portada portada-foto pagina-hero">
+        <div class="fondo-obras" aria-hidden="true">
+            <img class="visible" src="img/vanguardia-2.jpg" alt="">
         </div>
+        <div class="grano" aria-hidden="true"></div>
+        <h1 class="marca-pantalla">Proyectos</h1>
+        <div class="portada-intro">
+            <p class="kicker">Territorio</p>
+            <p>Formación, circulación y actividades que sacan las artes de la sala. Pasa el mouse y cada frente se abre.</p>
+        </div>
+    </section>
+
+    <section class="paneles">
+        <a class="panel-expand" href="contacto.html">
+            <img src="img/vanguardia-2.jpg" alt="Formación artística">
+            <div class="panel-dato">
+                <span>01 / Oficio</span>
+                <strong>Formación</strong>
+                <p>Talleres, procesos pedagógicos y acompañamiento para artistas en formación.</p>
+            </div>
+        </a>
+        <a class="panel-expand" href="contacto.html">
+            <img src="img/comunidad.jpg" alt="Escena y comunidad">
+            <div class="panel-dato">
+                <span>02 / Territorio</span>
+                <strong>Comunidad</strong>
+                <p>Encuentros y circulación que llevan las artes a otros públicos.</p>
+            </div>
+        </a>
+        <a class="panel-expand" href="ardila/index.html#festival">
+            <img src="img/festival.jpg" alt="Festival">
+            <div class="panel-dato">
+                <span>03 / Circulación</span>
+                <strong>Festival</strong>
+                <p>Encuentros abiertos alrededor del movimiento contemporáneo.</p>
+            </div>
+        </a>
     </section>
 
     <a class="btn-flotante" href="partner.html">Apóyenos</a>
