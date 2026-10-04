@@ -2904,12 +2904,21 @@
             position: absolute;
             top: 42%;
             left: 58%;
-            width: 56vmax;
-            height: 56vmax;
+            width: 38vmax;
+            height: 38vmax;
             border-radius: 50%;
             transform: translate(-50%, -50%);
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 28%, transparent 58%);
-            box-shadow: 0 0 0 200vmax rgba(0, 0, 0, 0.9);
+            background: radial-gradient(
+                circle,
+                rgba(255, 255, 255, 0.12) 0%,
+                rgba(255, 255, 255, 0.04) 22%,
+                rgba(0, 0, 0, 0.08) 48%,
+                transparent 72%
+            );
+            box-shadow:
+                0 0 90px 55px rgba(0, 0, 0, 0.45),
+                0 0 160px 90px rgba(0, 0, 0, 0.72),
+                0 0 0 200vmax rgba(0, 0, 0, 0.9);
             pointer-events: none;
         }
         body.pagina .linterna { display: none; }
