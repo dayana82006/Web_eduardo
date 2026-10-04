@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ardila Dance Company | Programa de Cuerpo y Alma</title>
+    <meta name="description" content="Ardila Dance Company es el programa de danza contemporánea de Cuerpo y Alma en Bucaramanga: obras, festival y formación.">
+    <meta name="geo.region" content="CO-SAN">
+    <meta name="geo.placename" content="Bucaramanga">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_CO">
+    <meta property="og:title" content="Ardila Dance Company | Programa de Cuerpo y Alma">
+    <meta property="og:description" content="Una línea de trabajo de la corporación: escena, formación y Festival Ardila de Danza, 12 al 15 de noviembre de 2026.">
+    <meta property="og:image" content="../img/hero.webp">
+    <meta name="twitter:card" content="summary_large_image">
     <script>
         try {
             var temaGuardado = localStorage.getItem('tema-cya');
@@ -26,14 +35,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/estilos.css?v=din4">
+    <link rel="stylesheet" href="../css/estilos.css?v=info2">
 </head>
 <body class="pagina">
     <header class="menu">
         <a class="logo" href="../index.html">
             <img class="logo-img" src="../img/cuerpo-y-alma.png" alt="Cuerpo y Alma, corporación para el desarrollo artístico">
         </a>
-        <nav class="menu-navegacion">
+        <nav class="menu-navegacion" id="menu-principal">
             <ul>
                 <li><a href="../index.html">Cuerpo y Alma</a></li>
                 <li><a class="activa" href="#compania">La compañía</a></li>
@@ -41,7 +50,8 @@
                 <li><a href="#festival">Festival</a></li>
                 <li><a href="#comunidad">Comunidad</a></li>
                 <li><a href="../nosotros.html">Nosotros</a></li>
-                <li><a class="nav-cta" href="../contacto.html">Contacto</a></li>
+                <li><a href="../contacto.html">Contacto</a></li>
+                <li><a class="nav-apoyo" href="../partner.html">Apóyenos</a></li>
             </ul>
         </nav>
         <div class="acciones-menu">
@@ -49,12 +59,12 @@
                 <svg class="icono-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M12 3v2.2M12 18.8V21M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M3 12h2.2M18.8 12H21M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></svg>
                 <svg class="icono-luna" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M16.5 13.2A7 7 0 0 1 10.2 4.8 7.2 7.2 0 1 0 19 14.6a7 7 0 0 1-2.5-1.4z"/></svg>
             </button>
-            <button class="btn-menu" type="button" aria-label="Abrir menú">Menú</button>
+            <button class="btn-menu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal"><span></span></button>
         </div>
     </header>
 
     <section class="portada portada-foto pagina-hero" id="ardila">
-        <div class="fondo-obras" aria-hidden="true"><img class="visible" src="../img/hero.jpg" alt=""></div>
+        <div class="fondo-obras" aria-hidden="true"><img class="visible" src="../img/hero.webp" alt=""></div>
         <div class="grano" aria-hidden="true"></div>
         <h1 class="marca-pantalla">Ardila</h1>
         <div class="portada-intro">
@@ -96,7 +106,7 @@
 
     <section class="paneles" id="obras">
         <article class="panel-expand">
-            <img src="../img/vanguardia-3.jpg" alt="Mil y una noches">
+            <img src="../img/vanguardia-3.webp" alt="Escenario a oscuras con telón y un foco encendido, obra Mil y una noches">
             <div class="panel-dato">
                 <span>01 / Obra</span>
                 <strong>Mil y una noches</strong>
@@ -104,7 +114,7 @@
             </div>
         </article>
         <article class="panel-expand">
-            <img src="../img/obra-romeo.jpg" alt="Romeo y Julieta">
+            <img src="../img/obra-romeo.webp" alt="Pareja de danza en un dueto dramático, obra Romeo y Julieta">
             <div class="panel-dato">
                 <span>02 / Obra</span>
                 <strong>Romeo &amp; Julieta</strong>
@@ -112,7 +122,7 @@
             </div>
         </article>
         <article class="panel-expand">
-            <img src="../img/vanguardia-1.jpg" alt="100 años de soledad">
+            <img src="../img/vanguardia-1.webp" alt="Tres bailarinas en un gesto colectivo, obra 100 años de soledad">
             <div class="panel-dato">
                 <span>03 / Obra</span>
                 <strong>100 años</strong>
@@ -132,7 +142,7 @@
             </div>
             <div id="panel-festival" class="panel-encuentro visible">
                 <article class="festival-destacado">
-                    <div class="foto"><img src="../img/festival.jpg" alt="Festival"></div>
+                    <div class="foto"><img src="../img/festival.webp" alt="Público y escena durante el Festival Ardila de Danza" loading="lazy"></div>
                     <div class="info">
                         <p class="etiqueta">Próxima edición</p>
                         <h3>Festival Ardila de Danza 2026</h3>
@@ -142,7 +152,7 @@
                             <div><span>Ciudad</span> Temporada en teatro y espacios públicos</div>
                             <div><span>Inscripciones</span> Abiertas para público, compañías y estudiantes</div>
                         </div>
-                        <a class="boton boton-principal" href="../contacto.html">Inscribirme al festival</a>
+                        <a class="boton boton-principal" href="../contacto.html?motivo=inscripcion">Inscribirme al festival</a>
                     </div>
                 </article>
                 <div class="rejilla-festival">
@@ -164,7 +174,7 @@
             <div id="panel-talleres" class="panel-encuentro">
                 <div class="rejilla-talleres">
                     <article class="tarjeta-taller">
-                        <div class="foto"><img src="../img/vanguardia-2.jpg" alt="Técnica"><span class="chip">Técnica</span></div>
+                        <div class="foto"><img src="../img/vanguardia-2.webp" alt="Bailarín contemporáneo de pie, brazos abiertos, con luz lateral" loading="lazy"><span class="chip">Técnica</span></div>
                         <div class="contenido">
                             <h3>Cuerpo contemporáneo</h3>
                             <p>Peso, suelo y presencia escénica.</p>
@@ -177,7 +187,7 @@
                         </div>
                     </article>
                     <article class="tarjeta-taller">
-                        <div class="foto"><img src="../img/obra-romeo.jpg" alt="Creación"><span class="chip">Creación</span></div>
+                        <div class="foto"><img src="../img/obra-romeo.webp" alt="Pareja de danza en un dueto, taller de composición" loading="lazy"><span class="chip">Creación</span></div>
                         <div class="contenido">
                             <h3>Composición y relato</h3>
                             <p>Frases, escenas y dramaturgia del movimiento.</p>
@@ -190,7 +200,7 @@
                         </div>
                     </article>
                     <article class="tarjeta-taller">
-                        <div class="foto"><img src="../img/hero.jpg" alt="Comunidad"><span class="chip">Comunidad</span></div>
+                        <div class="foto"><img src="../img/comunidad.webp" alt="Niños y talleristas en un encuentro comunitario al aire libre" loading="lazy"><span class="chip">Comunidad</span></div>
                         <div class="contenido">
                             <h3>Danza en el barrio</h3>
                             <p>Metodologías para escuelas y plazas.</p>
@@ -213,12 +223,12 @@
             <h2>La danza más allá del teatro</h2>
             <p class="intro-seccion">Talleres, presentaciones abiertas y procesos de formación que acercan el movimiento a barrios, escuelas y plazas.</p>
             <div class="galeria-comunidad">
-                <figure class="expande"><img src="../img/comunidad.jpg" alt="Encuentro comunitario"><figcaption>Encuentro con la comunidad</figcaption></figure>
-                <figure class="expande"><img src="../img/obra-romeo.jpg" alt="Formación técnica"><figcaption>Formación técnica</figcaption></figure>
-                <figure class="expande"><img src="../img/vanguardia-1.jpg" alt="Ensayo"><figcaption>Ensayo de compañía</figcaption></figure>
-                <figure class="expande"><img src="../img/compania.jpg" alt="Escena colectiva"><figcaption>Escena colectiva</figcaption></figure>
-                <figure class="expande"><img src="../img/vanguardia-2.jpg" alt="Nuevos lenguajes"><figcaption>Nuevos lenguajes</figcaption></figure>
-                <figure class="expande"><img src="../img/festival.jpg" alt="Encuentro"><figcaption>Encuentro abierto</figcaption></figure>
+                <figure class="expande"><img src="../img/comunidad.webp" alt="Niños y talleristas de Cuerpo y Alma en un encuentro comunitario" loading="lazy"><figcaption>Encuentro con la comunidad</figcaption></figure>
+                <figure class="expande"><img src="../img/obra-romeo.webp" alt="Pareja de danza en un dueto de formación técnica" loading="lazy"><figcaption>Formación técnica</figcaption></figure>
+                <figure class="expande"><img src="../img/vanguardia-1.webp" alt="Tres bailarinas ensayando un gesto colectivo" loading="lazy"><figcaption>Ensayo de compañía</figcaption></figure>
+                <figure class="expande"><img src="../img/compania.webp" alt="Pareja de danza abrazada bajo un foco" loading="lazy"><figcaption>Escena colectiva</figcaption></figure>
+                <figure class="expande"><img src="../img/vanguardia-2.webp" alt="Bailarín contemporáneo de pie, brazos abiertos, con luz lateral" loading="lazy"><figcaption>Nuevos lenguajes</figcaption></figure>
+                <figure class="expande"><img src="../img/festival.webp" alt="Público reunido frente a una escena de danza" loading="lazy"><figcaption>Encuentro abierto</figcaption></figure>
             </div>
             <p class="subtitulos" style="margin-top:48px;">Vanguardia</p>
             <h2>Danza que transforma vidas</h2>
@@ -229,7 +239,7 @@
                     <p>En Ardila Dance Company, programa de Cuerpo y Alma, creemos que la danza es una herramienta para el cambio social y la inclusión.</p>
                 </article>
                 <article class="card-mosaico card-con-imagen card-alto">
-                    <img src="../img/comunidad.jpg" alt="Talleres y encuentro comunitario">
+                    <img src="../img/comunidad.webp" alt="Niños y talleristas en un taller barrial al aire libre" loading="lazy">
                     <div class="info-hover"><h3>Talleres barriales</h3><p>Llevamos la danza a comunidades vulnerables.</p></div>
                 </article>
                 <article class="card-mosaico card-color card-impacto">
@@ -237,7 +247,7 @@
                     <p>Estudiantes beneficiados en nuestros programas anuales.</p>
                 </article>
                 <article class="card-mosaico card-con-imagen">
-                    <img src="../img/vanguardia-2.jpg" alt="Testimonio">
+                    <img src="../img/vanguardia-2.webp" alt="Retrato de una joven en formación, testimonio de Ana R." loading="lazy">
                     <div class="info-hover"><h3>Testimonio: Ana R.</h3><p>"La danza me dio confianza y una familia."</p></div>
                 </article>
                 <article class="card-mosaico card-ancho card-color card-becas">
@@ -245,7 +255,7 @@
                     <p>Apoyamos la formación profesional de jóvenes talentos, cubriendo matrícula, vestuario y transporte.</p>
                 </article>
                 <article class="card-mosaico card-con-imagen">
-                    <img src="../img/vanguardia-3.jpg" alt="Espacios públicos">
+                    <img src="../img/vanguardia-3.webp" alt="Escenario a oscuras listo para una presentación en espacio público" loading="lazy">
                     <div class="info-hover"><h3>Presentaciones en espacios públicos</h3><p>Arte accesible en parques y plazas.</p></div>
                 </article>
                 <article class="card-mosaico card-color card-impacto">
@@ -256,20 +266,33 @@
         </div>
     </section>
 
-    <a class="btn-flotante" href="../partner.html">Apóyenos</a>
+    <a class="btn-whatsapp" href="../contacto.html" aria-label="Escríbenos para inscribirte, contratar una función o donar">Escríbenos</a>
     <footer class="footer-principal">
-        <img class="logo-img" src="../img/cuerpo-y-alma.png" alt="Cuerpo y Alma, corporación para el desarrollo artístico">
-        <p>&copy; 2026 Corporación Cuerpo y Alma. Todos los derechos reservados.</p>
-        <a class="enlace-ig" href="https://www.instagram.com/corporacioncuerpoyalma" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16"><path fill="currentColor" d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm10 1.8H7A2.2 2.2 0 0 0 4.8 7v10A2.2 2.2 0 0 0 7 19.2h10a2.2 2.2 0 0 0 2.2-2.2V7A2.2 2.2 0 0 0 17 4.8zM12 8.2A3.8 3.8 0 1 1 8.2 12 3.8 3.8 0 0 1 12 8.2zm0 1.6A2.2 2.2 0 1 0 14.2 12 2.2 2.2 0 0 0 12 9.8zm4.55-3.05a.95.95 0 1 1-.95.95.95.95 0 0 1 .95-.95z"/></svg>
-            Ver más en IG
-        </a>
-        <form id="form-novedades" class="form-compacto" style="max-width: 360px; margin: 18px auto 0; display:flex; gap:8px; flex-wrap:wrap;">
-            <input type="email" required placeholder="Escribe tu email" aria-label="Correo para novedades" style="flex:1;">
-            <button class="boton boton-principal" type="submit">Unirme</button>
-            <p class="aviso-envio" id="aviso-novedades" style="flex-basis:100%;">Te avisaremos de actividades y convocatorias.</p>
-        </form>
+        <div class="footer-grid">
+            <div>
+                <img class="logo-img" src="../img/cuerpo-y-alma.png" alt="Cuerpo y Alma, corporación para el desarrollo artístico">
+                <p>Corporación para el desarrollo artístico. Bucaramanga, Santander, Colombia. Ardila Dance Company es una línea de trabajo, no toda la casa.</p>
+            </div>
+            <div>
+                <h3>Secciones</h3>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../nosotros.html">Nosotros</a></li>
+                    <li><a href="../producciones.html">Producciones</a></li>
+                    <li><a href="../proyectos.html">Proyectos</a></li>
+                    <li><a href="index.html">Ardila Dance</a></li>
+                    <li><a href="../partner.html">Apóyenos</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Contacto</h3>
+                <span class="footer-dato">Bucaramanga, Santander</span>
+                <span class="footer-dato"><a href="../contacto.html">Formulario de contacto</a></span>
+                <span class="footer-dato"><a href="https://www.instagram.com/corporacioncuerpoyalma" target="_blank" rel="noopener noreferrer">Instagram</a></span>
+            </div>
+        </div>
+        <p class="footer-copy">&copy; 2026 Corporación Cuerpo y Alma. Todos los derechos reservados.</p>
     </footer>
-    <script src="../js/sitio.js?v=din4"></script>
+    <script src="../js/sitio.js?v=info2"></script>
 </body>
 </html>

@@ -2,10 +2,16 @@ const nav = document.querySelector('.menu-navegacion');
 const botonMenu = document.querySelector('.btn-menu');
 if (botonMenu && nav) {
     botonMenu.addEventListener('click', () => {
-        nav.classList.toggle('abierto');
+        const abierto = nav.classList.toggle('abierto');
+        botonMenu.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+        botonMenu.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
     });
     nav.querySelectorAll('a').forEach((enlace) => {
-        enlace.addEventListener('click', () => nav.classList.remove('abierto'));
+        enlace.addEventListener('click', () => {
+            nav.classList.remove('abierto');
+            botonMenu.setAttribute('aria-expanded', 'false');
+            botonMenu.setAttribute('aria-label', 'Abrir menú');
+        });
     });
 }
 
@@ -38,6 +44,13 @@ function avisar(formulario, aviso) {
 }
 
 avisar(document.getElementById('form-contacto'), document.getElementById('aviso-envio'));
+
+const campoMotivo = document.getElementById('motivo');
+if (campoMotivo) {
+    const motivo = new URLSearchParams(window.location.search).get('motivo');
+    const valores = Array.from(campoMotivo.options).map((opcion) => opcion.value);
+    if (motivo && valores.includes(motivo)) campoMotivo.value = motivo;
+}
 avisar(document.getElementById('form-donacion'), document.getElementById('aviso-donacion'));
 avisar(document.getElementById('form-patrocinio'), document.getElementById('aviso-patrocinio'));
 avisar(document.getElementById('form-novedades'), document.getElementById('aviso-novedades'));
@@ -152,6 +165,8 @@ document.querySelectorAll('dialog.modal-apoyo').forEach((modal) => {
             luz.appendChild(foco);
             portada.appendChild(luz);
         }
+        foco.style.left = '64%';
+        foco.style.top = '48%';
         function moverLinterna(evento) {
             const r = portada.getBoundingClientRect();
             foco.style.left = (evento.clientX - r.left) + 'px';

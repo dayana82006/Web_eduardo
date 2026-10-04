@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Producciones | Cuerpo y Alma</title>
+    <meta name="description" content="Líneas de trabajo de Cuerpo y Alma: Ardila Dance Company, obras en escena y proyectos en territorio. Bucaramanga.">
+    <meta name="geo.region" content="CO-SAN">
+    <meta name="geo.placename" content="Bucaramanga">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_CO">
+    <meta property="og:title" content="Producciones | Cuerpo y Alma">
+    <meta property="og:description" content="Programas que pueden crecer por su cuenta, siempre bajo el mismo techo.">
+    <meta property="og:image" content="img/vanguardia-3.webp">
+    <meta name="twitter:card" content="summary_large_image">
     <script>
         try {
             var temaGuardado = localStorage.getItem('tema-cya');
@@ -26,22 +35,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/estilos.css?v=din4">
+    <link rel="stylesheet" href="css/estilos.css?v=info2">
 </head>
 <body class="pagina">
     <header class="menu">
         <a class="logo" href="index.html">
             <img class="logo-img" src="img/cuerpo-y-alma.png" alt="Cuerpo y Alma, corporación para el desarrollo artístico">
         </a>
-        <nav class="menu-navegacion">
+        <nav class="menu-navegacion" id="menu-principal">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
                 <li><a class="activa" href="producciones.html">Producciones</a></li>
                 <li><a href="proyectos.html">Proyectos</a></li>
                 <li><a href="ardila/index.html">Ardila Dance</a></li>
-                <li><a href="partner.html">Partner</a></li>
-                <li><a class="nav-cta" href="contacto.html">Contáctanos</a></li>
+                <li><a href="contacto.html">Contáctanos</a></li>
+                <li><a class="nav-apoyo" href="partner.html">Apóyenos</a></li>
             </ul>
         </nav>
         <div class="acciones-menu">
@@ -49,13 +58,13 @@
                 <svg class="icono-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M12 3v2.2M12 18.8V21M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M3 12h2.2M18.8 12H21M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></svg>
                 <svg class="icono-luna" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M16.5 13.2A7 7 0 0 1 10.2 4.8 7.2 7.2 0 1 0 19 14.6a7 7 0 0 1-2.5-1.4z"/></svg>
             </button>
-            <button class="btn-menu" type="button" aria-label="Abrir menú">Menú</button>
+            <button class="btn-menu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal"><span></span></button>
         </div>
     </header>
 
     <section class="portada portada-foto pagina-hero">
         <div class="fondo-obras" aria-hidden="true">
-            <img class="visible" src="img/hero.jpg" alt="">
+            <img class="visible" src="img/vanguardia-3.webp" alt="">
         </div>
         <div class="grano" aria-hidden="true"></div>
         <h1 class="marca-pantalla">Producciones</h1>
@@ -67,7 +76,7 @@
 
     <section class="paneles">
         <a class="panel-expand" href="ardila/index.html">
-            <img src="img/hero.jpg" alt="Ardila Dance Company">
+            <img src="img/compania.webp" alt="Pareja de Ardila Dance Company abrazada bajo un foco en escena" loading="lazy">
             <div class="panel-dato">
                 <span>01 / Programa</span>
                 <strong>Ardila Dance</strong>
@@ -75,7 +84,7 @@
             </div>
         </a>
         <a class="panel-expand" href="ardila/index.html#obras">
-            <img src="img/vanguardia-1.jpg" alt="Obras en escena">
+            <img src="img/vanguardia-1.webp" alt="Tres bailarinas en escena, brazos extendidos sobre fondo negro" loading="lazy">
             <div class="panel-dato">
                 <span>02 / Escena</span>
                 <strong>Obras</strong>
@@ -83,7 +92,7 @@
             </div>
         </a>
         <a class="panel-expand" href="proyectos.html">
-            <img src="img/comunidad.jpg" alt="Territorio">
+            <img src="img/comunidad.webp" alt="Niños y talleristas en un encuentro comunitario al aire libre" loading="lazy">
             <div class="panel-dato">
                 <span>03 / Territorio</span>
                 <strong>Proyectos</strong>
@@ -92,12 +101,33 @@
         </a>
     </section>
 
-    <a class="btn-flotante" href="partner.html">Apóyenos</a>
+    <a class="btn-whatsapp" href="contacto.html" aria-label="Escríbenos para inscribirte, contratar una función o donar">Escríbenos</a>
     <footer class="footer-principal">
-        <img class="logo-img" src="img/cuerpo-y-alma.png" alt="Cuerpo y Alma, corporación para el desarrollo artístico">
-        <p>&copy; 2026 Corporación Cuerpo y Alma. Todos los derechos reservados.</p>
-        <a class="enlace-ig" href="https://www.instagram.com/corporacioncuerpoyalma" target="_blank" rel="noopener noreferrer">Ver más en IG</a>
+        <div class="footer-grid">
+            <div>
+                <img class="logo-img" src="img/cuerpo-y-alma.png" alt="Cuerpo y Alma, corporación para el desarrollo artístico">
+                <p>Corporación para el desarrollo artístico. Bucaramanga, Santander, Colombia.</p>
+            </div>
+            <div>
+                <h3>Secciones</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="producciones.html">Producciones</a></li>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                    <li><a href="ardila/index.html">Ardila Dance</a></li>
+                    <li><a href="partner.html">Apóyenos</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Contacto</h3>
+                <span class="footer-dato">Bucaramanga, Santander</span>
+                <span class="footer-dato"><a href="contacto.html">Formulario de contacto</a></span>
+                <span class="footer-dato"><a href="https://www.instagram.com/corporacioncuerpoyalma" target="_blank" rel="noopener noreferrer">Instagram</a></span>
+            </div>
+        </div>
+        <p class="footer-copy">&copy; 2026 Corporación Cuerpo y Alma. Todos los derechos reservados.</p>
     </footer>
-    <script src="js/sitio.js?v=din4"></script>
+    <script src="js/sitio.js?v=info2"></script>
 </body>
 </html>
